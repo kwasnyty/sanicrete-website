@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if added later)
+node_modules/
+package-lock.json
+
+# Environment
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+
+# Logs
+*.log
+
+# Large video files (host on YouTube/Vimeo/CDN instead)
+videos/*.mp4
+videos/*.mov
+videos/*.avi
+
+# Claude config
+.claude/
