@@ -6,6 +6,14 @@
     <title>Careers | SaniCrete - Join Our Team</title>
     <meta name="description" content="Join the SaniCrete team. We're looking for hardworking individuals to help us deliver excellence in food processing flooring.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px; }
@@ -170,7 +178,7 @@
                     </div>
                 </div>
 
-                <form id="applicationForm">
+                <form id="applicationForm" action="https://formspree.io/f/xgolwrrn" method="POST">
                     <!-- Step 1: Personal Information -->
                     <div class="form-step active" id="step1">
                         <div class="form-section">
@@ -396,10 +404,8 @@
         }
 
         document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-            document.getElementById('step5').classList.add('active');
-            window.scrollTo({ top: document.getElementById('apply').offsetTop - 100, behavior: 'smooth' });
+            // Form submits to Formspree via the action attribute
+            // Show success message briefly before redirect
         });
     </script>
 <!-- Tidio Chatbot -->

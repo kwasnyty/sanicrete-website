@@ -12,6 +12,14 @@
     <meta property="og:description" content="Fast, easy DIY floor repair for food processing. Order online now.">
     <meta property="og:type" content="product">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .order-options { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
@@ -121,7 +129,7 @@
                         <div class="price">$XXX</div>
                         <button class="btn btn-outline" onclick="document.getElementById('poForm').classList.toggle('active')">Request PO Quote →</button>
                         
-                        <form id="poForm" class="po-form">
+                        <form id="poForm" class="po-form" action="https://formspree.io/f/xmaqdwaan" method="POST">
                             <div class="form-group">
                                 <label for="poCompany">Company Name *</label>
                                 <input type="text" id="poCompany" name="company" required>

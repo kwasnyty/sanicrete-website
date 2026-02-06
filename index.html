@@ -58,6 +58,14 @@
     }
     </script>
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -338,9 +346,9 @@
                 <div class="newsletter-content">
                     <h2>Stay Informed</h2>
                     <p>Get industry insights, product updates, and flooring maintenance tips delivered to your inbox.</p>
-                    <form class="newsletter-form" action="#" method="POST">
+                    <form class="newsletter-form" action="https://formspree.io/f/xreazrrv" method="POST">
                         <div class="newsletter-input-group">
-                            <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+                            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </div>
                         <p class="newsletter-disclaimer">No spam. Unsubscribe anytime. We respect your privacy.</p>
