@@ -133,16 +133,16 @@
         </section>
 
         <div class="value-banner">
-            <h3>One Throat to Choke™</h3>
-            <p>Our own formulations. Our own installation crews. No finger-pointing. Complete accountability.</p>
+            <h3>USDA Compliant &bull; 5-Year Warranty &bull; Rapid Cure</h3>
+            <p>Foot traffic in hours, full chemical resistance in days. We get your facility back online fast.</p>
         </div>
 
         <!-- Video Section -->
         <section class="video-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Learn About SaniCrete</h2>
-                    <p>See how we manufacture and install flooring for food processing facilities nationwide</p>
+                    <h2>See Us In Action</h2>
+                    <p>See how we prep, pour, and finish floors for food processing facilities nationwide</p>
                 </div>
                 <div style="max-width: 800px; margin: 0 auto;">
                     <div class="video-card">
@@ -152,7 +152,7 @@
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                        <h3>Learn About SaniCrete</h3>
+                        <h3>SaniCrete Overview</h3>
                     </div>
                 </div>
             </div>
@@ -169,8 +169,8 @@
                     <img src="images/logos/tyson.png" alt="Tyson Foods">
                     <img src="images/logos/jbs.png" alt="JBS">
                     <img src="images/logos/smithfield.png" alt="Smithfield">
-                    <img src="images/logos/dfa.png" alt="Dairy Farmers of America">
-                    <img src="images/logos/agropur.png" alt="Agropur">
+                    <img src="images/logos/dfa.png" alt="Dairy Farmers of America" style="height: 45px; max-width: 150px;">
+                    <img src="images/logos/agropur.png" alt="Agropur" style="height: 45px; max-width: 150px;">
                     <img src="images/logos/casefarms.png" alt="Case Farms">
                     <img src="images/logos/symrise.png" alt="Symrise">
                     <img src="images/logos/ctifoods.png" alt="CTI Foods">
@@ -246,100 +246,271 @@
                     <p>Every area of your facility has different demands &mdash; here's what we recommend</p>
                 </div>
                 <div class="facility-diagram-wrapper">
-                    <svg class="facility-diagram" viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive facility floor plan showing recommended SaniCrete flooring products for each zone">
+                    <svg class="facility-diagram" viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive facility floor plan showing recommended SaniCrete flooring products for each zone">
                         <defs>
-                            <filter id="buildingShadow" x="-2%" y="-2%" width="104%" height="104%">
-                                <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#1e3a5f" flood-opacity="0.15"/>
+                            <filter id="bldgShadow" x="-3%" y="-3%" width="106%" height="106%">
+                                <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0a1929" flood-opacity="0.18"/>
                             </filter>
+                            <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#c0c8d4" stroke-width="0.3"/>
+                            </pattern>
                         </defs>
 
-                        <!-- Building outline -->
-                        <rect x="15" y="15" width="970" height="650" rx="8" fill="#e8ecf1" stroke="#c0c8d4" stroke-width="2" filter="url(#buildingShadow)"/>
+                        <!-- ============================================ -->
+                        <!-- IRREGULAR BUILDING SHAPE (L-shaped plant)    -->
+                        <!-- Cold storage pops up top-right               -->
+                        <!-- Loading dock juts out bottom-left             -->
+                        <!-- Offices wing at bottom-center                -->
+                        <!-- ============================================ -->
 
-                        <!-- ROW 1: Processing areas (top) -->
-                        <a href="products/sanicrete-stx.html" class="diagram-zone" data-zone="Kill Floor / Processing" data-product="SaniCrete STX" aria-label="Kill Floor and Processing area — recommended product: SaniCrete STX">
-                            <rect x="30" y="30" width="225" height="200" rx="4" fill="#2d4a6f"/>
-                            <text x="142" y="115" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Kill Floor /</text>
-                            <text x="142" y="135" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Processing</text>
-                            <text x="142" y="165" text-anchor="middle" fill="#b8d0e8" font-family="Open Sans, sans-serif" font-size="12">SaniCrete STX</text>
+                        <!-- Main building body -->
+                        <polygon points="120,20 740,20 740,100 920,100 920,420 740,420 740,560 480,560 480,700 120,700 120,560 20,560 20,420 120,420" fill="#e2e7ed" stroke="#7a8ea3" stroke-width="4" stroke-linejoin="round" filter="url(#bldgShadow)"/>
+                        <!-- Grid overlay (clipped to building) -->
+                        <clipPath id="bldgClip"><polygon points="120,20 740,20 740,100 920,100 920,420 740,420 740,560 480,560 480,700 120,700 120,560 20,560 20,420 120,420"/></clipPath>
+                        <rect x="0" y="0" width="960" height="720" fill="url(#gridPattern)" opacity="0.4" clip-path="url(#bldgClip)"/>
+
+                        <!-- ============ INTERIOR WALLS ============ -->
+                        <!-- Wall: Kill Floor | Wet Production (vertical) -->
+                        <rect x="330" y="20" width="6" height="260" fill="#7a8ea3"/>
+                        <rect x="330" y="110" width="6" height="40" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Wet Production | Chemical Storage (vertical) -->
+                        <rect x="560" y="20" width="6" height="260" fill="#7a8ea3"/>
+                        <rect x="560" y="120" width="6" height="35" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Chemical Storage top (meets cold storage wall) -->
+                        <rect x="566" y="100" width="174" height="6" fill="#7a8ea3"/>
+                        <rect x="620" y="100" width="40" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Processing row | Corridor (horizontal) -->
+                        <rect x="120" y="280" width="620" height="6" fill="#7a8ea3"/>
+                        <rect x="200" y="280" width="45" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <rect x="420" y="280" width="45" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <rect x="620" y="280" width="40" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Corridor | Lower zones (horizontal) -->
+                        <rect x="120" y="320" width="620" height="6" fill="#7a8ea3"/>
+                        <rect x="220" y="320" width="45" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <rect x="500" y="320" width="45" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Packaging | Warehouse (vertical) -->
+                        <rect x="430" y="326" width="6" height="94" fill="#7a8ea3"/>
+                        <rect x="430" y="360" width="6" height="30" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Lower areas | Office wing (horizontal) -->
+                        <rect x="120" y="420" width="620" height="6" fill="#7a8ea3"/>
+                        <rect x="180" y="420" width="45" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <rect x="360" y="420" width="40" height="6" fill="#e2e7ed"/><!-- doorway -->
+                        <rect x="560" y="420" width="40" height="6" fill="#e2e7ed"/><!-- doorway wh -->
+                        <!-- Wall: Loading Dock area | Offices (vertical from wing) -->
+                        <rect x="260" y="426" width="6" height="134" fill="#7a8ea3"/>
+                        <rect x="260" y="480" width="6" height="35" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Offices | Locker Rooms (vertical) -->
+                        <rect x="400" y="426" width="6" height="134" fill="#7a8ea3"/>
+                        <rect x="400" y="490" width="6" height="30" fill="#e2e7ed"/><!-- doorway -->
+                        <!-- Wall: Cold storage outer (it's its own wing top-right) -->
+                        <rect x="740" y="100" width="6" height="320" fill="#7a8ea3"/>
+                        <rect x="740" y="250" width="6" height="40" fill="#e2e7ed"/><!-- doorway to warehouse -->
+
+                        <!-- ============ ZONE FILLS ============ -->
+
+                        <!-- Kill Floor / Processing (large left area) -->
+                        <a href="products/sanicrete-stx.html" class="diagram-zone" data-zone="Kill Floor / Processing" data-product="SaniCrete STX" aria-label="Kill Floor — SaniCrete STX">
+                            <rect x="122" y="22" width="208" height="258" fill="#2d4a6f" opacity="0.18" rx="2"/>
+                            <!-- Processing tables -->
+                            <rect x="145" y="55" width="70" height="28" rx="2" fill="none" stroke="#2d4a6f" stroke-width="1.4" opacity="0.45"/>
+                            <rect x="145" y="100" width="70" height="28" rx="2" fill="none" stroke="#2d4a6f" stroke-width="1.4" opacity="0.45"/>
+                            <rect x="145" y="145" width="70" height="28" rx="2" fill="none" stroke="#2d4a6f" stroke-width="1.4" opacity="0.45"/>
+                            <!-- Conveyor -->
+                            <line x1="245" y1="40" x2="245" y2="245" stroke="#2d4a6f" stroke-width="1.5" opacity="0.35" stroke-dasharray="4,3"/>
+                            <line x1="255" y1="40" x2="255" y2="245" stroke="#2d4a6f" stroke-width="1.5" opacity="0.35" stroke-dasharray="4,3"/>
+                            <!-- SLOT DRAIN (long narrow channel) -->
+                            <rect x="290" y="45" width="5" height="200" rx="1" fill="#3b82f6" opacity="0.35"/>
+                            <rect x="180" y="195" width="100" height="4" rx="1" fill="#3b82f6" opacity="0.3"/>
+                            <text x="220" y="248" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="13">Kill Floor</text>
+                            <text x="220" y="264" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">SaniCrete STX</text>
                         </a>
 
-                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Wet Production / Washdown" data-product="SaniCrete SL" aria-label="Wet Production and Washdown area — recommended product: SaniCrete SL">
-                            <rect x="270" y="30" width="225" height="200" rx="4" fill="#3d5a7f"/>
-                            <text x="382" y="115" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Wet Production /</text>
-                            <text x="382" y="135" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Washdown</text>
-                            <text x="382" y="165" text-anchor="middle" fill="#b8d0e8" font-family="Open Sans, sans-serif" font-size="12">SaniCrete SL</text>
+                        <!-- Wet Production / Washdown -->
+                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Wet Production / Washdown" data-product="SaniCrete SL" aria-label="Wet Production — SaniCrete SL">
+                            <rect x="336" y="22" width="224" height="258" fill="#3d5a7f" opacity="0.14" rx="2"/>
+                            <!-- Tanks -->
+                            <circle cx="390" cy="85" r="22" fill="none" stroke="#3d5a7f" stroke-width="1.4" opacity="0.4"/>
+                            <circle cx="448" cy="85" r="22" fill="none" stroke="#3d5a7f" stroke-width="1.4" opacity="0.4"/>
+                            <circle cx="506" cy="85" r="22" fill="none" stroke="#3d5a7f" stroke-width="1.4" opacity="0.4"/>
+                            <!-- Processing line -->
+                            <rect x="370" y="135" width="155" height="18" rx="3" fill="none" stroke="#3d5a7f" stroke-width="1.3" opacity="0.4"/>
+                            <!-- SLOT DRAINS -->
+                            <rect x="375" y="175" width="140" height="4" rx="1" fill="#3b82f6" opacity="0.3"/>
+                            <rect x="375" y="220" width="140" height="4" rx="1" fill="#3b82f6" opacity="0.3"/>
+                            <!-- Hose stations -->
+                            <rect x="345" y="200" width="8" height="8" fill="#3d5a7f" opacity="0.3"/>
+                            <rect x="345" y="240" width="8" height="8" fill="#3d5a7f" opacity="0.3"/>
+                            <text x="448" y="250" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="13">Wet Production</text>
+                            <text x="448" y="266" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">SaniCrete SL</text>
                         </a>
 
-                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Chemical Storage" data-product="SaniCrete SL + SaniEster" aria-label="Chemical Storage area — recommended product: SaniCrete SL plus SaniEster Topcoat">
-                            <rect x="510" y="30" width="180" height="200" rx="4" fill="#4a6a8f"/>
-                            <text x="600" y="120" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="14">Chemical</text>
-                            <text x="600" y="140" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="14">Storage</text>
-                            <text x="600" y="168" text-anchor="middle" fill="#b8d0e8" font-family="Open Sans, sans-serif" font-size="11">SL + SaniEster</text>
+                        <!-- Chemical Storage (smaller room upper-right of main body) -->
+                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Chemical Storage" data-product="SaniCrete SL + SaniEster" aria-label="Chemical Storage — SL + SaniEster">
+                            <rect x="566" y="22" width="172" height="78" fill="#4a6a8f" opacity="0.14" rx="2"/>
+                            <!-- Drums -->
+                            <circle cx="600" cy="55" r="10" fill="none" stroke="#4a6a8f" stroke-width="1.2" opacity="0.4"/>
+                            <circle cx="628" cy="55" r="10" fill="none" stroke="#4a6a8f" stroke-width="1.2" opacity="0.4"/>
+                            <circle cx="656" cy="55" r="10" fill="none" stroke="#4a6a8f" stroke-width="1.2" opacity="0.4"/>
+                            <circle cx="684" cy="55" r="10" fill="none" stroke="#4a6a8f" stroke-width="1.2" opacity="0.4"/>
+                            <circle cx="714" cy="55" r="10" fill="none" stroke="#4a6a8f" stroke-width="1.2" opacity="0.4"/>
+                            <!-- Containment curb -->
+                            <rect x="585" y="32" width="140" height="55" rx="2" fill="none" stroke="#4a6a8f" stroke-width="0.8" stroke-dasharray="5,3" opacity="0.3"/>
+                            <text x="652" y="78" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="11">Chem Storage</text>
+                            <text x="652" y="92" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="9">SL + SaniEster</text>
                         </a>
 
-                        <a href="products/polished-concrete.html" class="diagram-zone" data-zone="Cold Storage / Freezer" data-product="Polished Concrete or STX" aria-label="Cold Storage and Freezer area — recommended product: Polished Concrete or SaniCrete STX">
-                            <rect x="705" y="30" width="265" height="200" rx="4" fill="#8ba8c4"/>
-                            <text x="837" y="115" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Cold Storage /</text>
-                            <text x="837" y="135" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Freezer</text>
-                            <text x="837" y="165" text-anchor="middle" fill="#d4e4f2" font-family="Open Sans, sans-serif" font-size="12">Polished Concrete or STX</text>
+                        <!-- Cold Storage / Freezer (separate wing, top-right) -->
+                        <a href="products/polished-concrete.html" class="diagram-zone" data-zone="Cold Storage / Freezer" data-product="Polished Concrete or STX" aria-label="Cold Storage — Polished Concrete or STX">
+                            <rect x="746" y="102" width="172" height="316" fill="#8ba8c4" opacity="0.14" rx="2"/>
+                            <!-- Pallet racks -->
+                            <rect x="765" y="125" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="765" y="145" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="765" y="165" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="765" y="185" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="125" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="145" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="165" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="185" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="765" y="230" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="765" y="250" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="230" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <rect x="850" y="250" width="55" height="10" rx="1" fill="none" stroke="#5a7a94" stroke-width="1" opacity="0.4"/>
+                            <!-- Snowflake -->
+                            <text x="900" y="400" text-anchor="middle" fill="#5a7a94" font-size="16" opacity="0.35">&#10052;</text>
+                            <text x="832" y="350" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="13">Cold Storage</text>
+                            <text x="832" y="366" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">Polished / STX</text>
                         </a>
 
-                        <!-- ROW 2: Middle areas -->
-                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Packaging / Dry Processing" data-product="SaniCrete SL or MD" aria-label="Packaging and Dry Processing area — recommended product: SaniCrete SL or MD">
-                            <rect x="30" y="245" width="460" height="155" rx="4" fill="#7a9ab5"/>
-                            <text x="260" y="315" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Packaging / Dry Processing</text>
-                            <text x="260" y="343" text-anchor="middle" fill="#d4e4f2" font-family="Open Sans, sans-serif" font-size="12">SaniCrete SL or MD</text>
+                        <!-- Corridor / Aisles (between processing and lower zones) -->
+                        <a href="products/sanicoat.html" class="diagram-zone diagram-zone-aisle" data-zone="Aisles / Safety Zones" data-product="SaniCoat Line Striping" aria-label="Aisles — SaniCoat Line Striping">
+                            <rect x="122" y="286" width="618" height="34" fill="#f5f0e0" opacity="0.4" rx="1"/>
+                            <line x1="130" y1="303" x2="735" y2="303" stroke="#f59e0b" stroke-width="2" stroke-dasharray="14,7" opacity="0.55"/>
+                            <!-- Forklift -->
+                            <rect x="420" y="293" width="14" height="9" rx="2" fill="#c4a832" opacity="0.35"/>
+                            <rect x="427" y="289" width="3" height="4" fill="#c4a832" opacity="0.35"/>
                         </a>
 
-                        <a href="products/polished-concrete.html" class="diagram-zone" data-zone="Warehouse / Distribution" data-product="Polished Concrete" aria-label="Warehouse and Distribution area — recommended product: Polished Concrete">
-                            <rect x="505" y="245" width="465" height="155" rx="4" fill="#a0b0c0"/>
-                            <text x="737" y="315" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Warehouse / Distribution</text>
-                            <text x="737" y="343" text-anchor="middle" fill="#e0eaf2" font-family="Open Sans, sans-serif" font-size="12">Polished Concrete</text>
+                        <!-- Packaging / Dry Processing -->
+                        <a href="products/sanicrete-sl.html" class="diagram-zone" data-zone="Packaging / Dry Processing" data-product="SaniCrete SL or MD" aria-label="Packaging — SL or MD">
+                            <rect x="122" y="326" width="308" height="94" fill="#7a9ab5" opacity="0.12" rx="2"/>
+                            <!-- Conveyor belt -->
+                            <rect x="140" y="345" width="160" height="10" rx="3" fill="none" stroke="#5a7a94" stroke-width="1.2" opacity="0.4"/>
+                            <!-- Palletizer -->
+                            <rect x="320" y="340" width="40" height="40" rx="3" fill="none" stroke="#5a7a94" stroke-width="1.2" opacity="0.35"/>
+                            <!-- Pallet staging -->
+                            <rect x="145" y="380" width="24" height="24" fill="none" stroke="#5a7a94" stroke-width="0.8" opacity="0.25"/>
+                            <rect x="175" y="380" width="24" height="24" fill="none" stroke="#5a7a94" stroke-width="0.8" opacity="0.25"/>
+                            <rect x="205" y="380" width="24" height="24" fill="none" stroke="#5a7a94" stroke-width="0.8" opacity="0.25"/>
+                            <text x="276" y="402" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="12">Packaging</text>
+                            <text x="276" y="416" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="9">SL or MD</text>
                         </a>
 
-                        <!-- ROW 3: Bottom areas -->
-                        <a href="products/sanicrete-hf.html" class="diagram-zone" data-zone="Loading Dock / Receiving" data-product="SaniCrete HF" aria-label="Loading Dock and Receiving area — recommended product: SaniCrete HF">
-                            <rect x="30" y="415" width="250" height="235" rx="4" fill="#6b7d8f"/>
-                            <text x="155" y="520" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Loading Dock /</text>
-                            <text x="155" y="540" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Receiving</text>
-                            <text x="155" y="570" text-anchor="middle" fill="#b8d0e8" font-family="Open Sans, sans-serif" font-size="12">SaniCrete HF</text>
+                        <!-- Warehouse / Distribution (large right side) -->
+                        <a href="products/polished-concrete.html" class="diagram-zone" data-zone="Warehouse / Distribution" data-product="Polished Concrete" aria-label="Warehouse — Polished Concrete">
+                            <rect x="436" y="326" width="302" height="234" fill="#a0b0c0" opacity="0.08" rx="2"/>
+                            <!-- Racking rows -->
+                            <rect x="460" y="345" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="460" y="363" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="460" y="381" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="460" y="399" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="600" y="345" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="600" y="363" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="600" y="381" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <rect x="600" y="399" width="110" height="8" rx="1" fill="none" stroke="#7a8a9a" stroke-width="1" opacity="0.35"/>
+                            <!-- Forklift aisles -->
+                            <line x1="580" y1="340" x2="580" y2="420" stroke="#c4a832" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.25"/>
+                            <!-- Pallet staging lower -->
+                            <rect x="470" y="450" width="35" height="35" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.2"/>
+                            <rect x="515" y="450" width="35" height="35" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.2"/>
+                            <rect x="560" y="450" width="35" height="35" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.2"/>
+                            <rect x="605" y="450" width="35" height="35" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.2"/>
+                            <rect x="650" y="450" width="35" height="35" fill="none" stroke="#7a8a9a" stroke-width="0.8" opacity="0.2"/>
+                            <text x="588" y="520" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="13">Warehouse</text>
+                            <text x="588" y="536" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">Polished Concrete</text>
                         </a>
 
-                        <a href="products/saniflake.html" class="diagram-zone" data-zone="Offices / Lobbies" data-product="SaniFlake or Polished Concrete" aria-label="Offices and Lobbies area — recommended product: SaniFlake or Polished Concrete">
-                            <rect x="295" y="415" width="230" height="235" rx="4" fill="#b0bec5"/>
-                            <text x="410" y="525" text-anchor="middle" fill="#3a4a5a" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Offices /</text>
-                            <text x="410" y="545" text-anchor="middle" fill="#3a4a5a" font-family="Montserrat, sans-serif" font-weight="600" font-size="15">Lobbies</text>
-                            <text x="410" y="573" text-anchor="middle" fill="#5a6a7a" font-family="Open Sans, sans-serif" font-size="12">SaniFlake</text>
+                        <!-- Loading Dock / Receiving (jutting out left, bottom) -->
+                        <a href="products/sanicrete-hf.html" class="diagram-zone" data-zone="Loading Dock / Receiving" data-product="SaniCrete HF" aria-label="Loading Dock — SaniCrete HF">
+                            <rect x="22" y="426" width="238" height="132" fill="#6b7d8f" opacity="0.14" rx="2"/>
+                            <!-- Dock doors (left edge = exterior wall) -->
+                            <rect x="22" y="440" width="10" height="28" rx="2" fill="#5a6a7a" opacity="0.45"/>
+                            <rect x="22" y="478" width="10" height="28" rx="2" fill="#5a6a7a" opacity="0.45"/>
+                            <rect x="22" y="516" width="10" height="28" rx="2" fill="#5a6a7a" opacity="0.45"/>
+                            <!-- Staging areas -->
+                            <rect x="55" y="445" width="70" height="40" fill="none" stroke="#5a6a7a" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.3"/>
+                            <rect x="140" y="445" width="70" height="40" fill="none" stroke="#5a6a7a" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.3"/>
+                            <!-- SLOT DRAIN across dock -->
+                            <rect x="50" y="500" width="170" height="4" rx="1" fill="#3b82f6" opacity="0.3"/>
+                            <text x="135" y="530" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="12">Loading Dock</text>
+                            <text x="135" y="545" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">SaniCrete HF</text>
                         </a>
 
-                        <a href="products/saniquartz.html" class="diagram-zone" data-zone="Locker Rooms / Welfare" data-product="SaniQuartz or SaniFlake" aria-label="Locker Rooms and Welfare area — recommended product: SaniQuartz or SaniFlake">
-                            <rect x="540" y="415" width="160" height="235" rx="4" fill="#94a3b8"/>
-                            <text x="620" y="525" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="14">Locker</text>
-                            <text x="620" y="545" text-anchor="middle" fill="#ffffff" font-family="Montserrat, sans-serif" font-weight="600" font-size="14">Rooms</text>
-                            <text x="620" y="573" text-anchor="middle" fill="#d4e4f2" font-family="Open Sans, sans-serif" font-size="11">SaniQuartz</text>
+                        <!-- Offices / Lobbies (bottom-center wing) -->
+                        <a href="products/saniflake.html" class="diagram-zone" data-zone="Offices / Lobbies" data-product="SaniFlake or Polished Concrete" aria-label="Offices — SaniFlake">
+                            <rect x="122" y="560" width="218" height="138" fill="#b0bec5" opacity="0.1" rx="2"/>
+                            <!-- Desks -->
+                            <rect x="145" y="585" width="45" height="20" rx="2" fill="none" stroke="#6a7a8a" stroke-width="1" opacity="0.35"/>
+                            <rect x="205" y="585" width="45" height="20" rx="2" fill="none" stroke="#6a7a8a" stroke-width="1" opacity="0.35"/>
+                            <rect x="265" y="585" width="45" height="20" rx="2" fill="none" stroke="#6a7a8a" stroke-width="1" opacity="0.35"/>
+                            <!-- Chairs -->
+                            <circle cx="168" cy="615" r="4" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <circle cx="228" cy="615" r="4" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <circle cx="288" cy="615" r="4" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <!-- Conference table -->
+                            <rect x="175" y="640" width="70" height="35" rx="10" fill="none" stroke="#6a7a8a" stroke-width="1" opacity="0.35"/>
+                            <!-- Front entry -->
+                            <rect x="200" y="694" width="35" height="6" fill="#e2e7ed"/>
+                            <text x="231" y="680" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="12">Offices</text>
+                            <text x="231" y="694" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="10">SaniFlake</text>
                         </a>
 
-                        <!-- Aisles / Safety Zones (dashed lines between rows) -->
-                        <a href="products/sanicoat.html" class="diagram-zone diagram-zone-aisle" data-zone="Aisles / Safety Zones" data-product="SaniCoat Line Striping" aria-label="Aisles and Safety Zones — recommended product: SaniCoat Line Striping">
-                            <line x1="30" y1="237" x2="970" y2="237" stroke="#f59e0b" stroke-width="5" stroke-dasharray="12,6" opacity="0.8"/>
-                            <line x1="30" y1="407" x2="970" y2="407" stroke="#f59e0b" stroke-width="5" stroke-dasharray="12,6" opacity="0.8"/>
-                            <line x1="715" y1="415" x2="715" y2="650" stroke="#f59e0b" stroke-width="5" stroke-dasharray="12,6" opacity="0.8"/>
+                        <!-- Locker Rooms / Welfare (between offices and warehouse) -->
+                        <a href="products/saniquartz.html" class="diagram-zone" data-zone="Locker Rooms / Welfare" data-product="SaniQuartz or SaniFlake" aria-label="Locker Rooms — SaniQuartz">
+                            <rect x="266" y="426" width="134" height="134" fill="#94a3b8" opacity="0.1" rx="2"/>
+                            <!-- Lockers -->
+                            <rect x="278" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="289" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="300" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="311" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="322" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="333" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="344" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="355" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <rect x="366" y="438" width="7" height="45" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.35"/>
+                            <!-- Bench -->
+                            <rect x="295" y="500" width="55" height="6" rx="2" fill="none" stroke="#6a7a8a" stroke-width="1" opacity="0.35"/>
+                            <!-- Shower stalls -->
+                            <rect x="280" y="520" width="22" height="22" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <rect x="310" y="520" width="22" height="22" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <rect x="340" y="520" width="22" height="22" fill="none" stroke="#6a7a8a" stroke-width="0.8" opacity="0.3"/>
+                            <!-- Drain in showers -->
+                            <rect x="282" y="545" width="78" height="3" rx="1" fill="#3b82f6" opacity="0.3"/>
+                            <text x="333" y="548" text-anchor="middle" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="11">Locker Rooms</text>
+                            <text x="333" y="558" text-anchor="middle" fill="#64748b" font-family="Open Sans, sans-serif" font-weight="600" font-size="9">SaniQuartz</text>
                         </a>
 
-                        <!-- Drains & Transitions (circle markers) -->
-                        <a href="products/sanitary-drains.html" class="diagram-zone diagram-zone-drain" data-zone="Drains &amp; Transitions" data-product="Sanitary Drains + VR Cove Base" aria-label="Drains and Transitions — recommended product: Sanitary Drains plus VR Cove Base">
-                            <circle cx="142" cy="225" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="382" cy="225" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="600" cy="225" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="260" cy="395" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="737" cy="395" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="155" cy="645" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
+                        <!-- Wet area below Chemical Storage (still part of production zone) -->
+                        <rect x="566" y="106" width="174" height="174" fill="#3d5a7f" opacity="0.06" rx="2"/>
+                        <!-- Additional processing equipment in this area -->
+                        <rect x="585" y="130" width="60" height="15" rx="2" fill="none" stroke="#3d5a7f" stroke-width="1" opacity="0.3"/>
+                        <rect x="585" y="160" width="60" height="15" rx="2" fill="none" stroke="#3d5a7f" stroke-width="1" opacity="0.3"/>
+                        <!-- SLOT DRAIN -->
+                        <rect x="580" y="200" width="120" height="4" rx="1" fill="#3b82f6" opacity="0.25"/>
+
+                        <!-- Drains & Transitions -->
+                        <a href="products/sanitary-drains.html" class="diagram-zone diagram-zone-drain" data-zone="Drains &amp; Transitions" data-product="Sanitary Drains + VR Cove Base" aria-label="Drains — Sanitary Drains + VR Cove Base">
+                            <!-- Drain markers at key points -->
+                            <circle cx="293" cy="195" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
+                            <circle cx="180" cy="100" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
+                            <circle cx="450" cy="175" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
+                            <circle cx="450" cy="222" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
+                            <circle cx="135" cy="502" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
+                            <circle cx="321" cy="545" r="5" fill="#3b82f6" stroke="#ffffff" stroke-width="1.5" opacity="0.55"/>
                         </a>
 
-                        <!-- Tooltip (hidden by default, positioned by JS) -->
+                        <!-- Tooltip -->
                         <g class="diagram-tooltip" style="display:none; pointer-events:none;">
-                            <rect class="diagram-tooltip-bg" x="0" y="0" width="240" height="60" rx="8" fill="#ffffff" stroke="#c0c8d4" stroke-width="1" filter="url(#buildingShadow)"/>
+                            <rect class="diagram-tooltip-bg" x="0" y="0" width="240" height="60" rx="8" fill="#ffffff" stroke="#c0c8d4" stroke-width="1" filter="url(#bldgShadow)"/>
                             <text class="diagram-tooltip-title" x="12" y="24" fill="#1e3a5f" font-family="Montserrat, sans-serif" font-weight="700" font-size="13"></text>
                             <text class="diagram-tooltip-product" x="12" y="44" fill="#64748B" font-family="Open Sans, sans-serif" font-size="12"></text>
                         </g>
@@ -348,19 +519,22 @@
                     <!-- Legend -->
                     <div class="diagram-legend">
                         <div class="diagram-legend-item">
-                            <span class="legend-swatch" style="background:#2d4a6f;"></span> Heavy-Duty Processing
+                            <span class="legend-swatch" style="background:#2d4a6f;"></span> Processing
                         </div>
                         <div class="diagram-legend-item">
-                            <span class="legend-swatch" style="background:#7a9ab5;"></span> Light / Dry Areas
+                            <span class="legend-swatch" style="background:#8ba8c4;"></span> Cold Storage
                         </div>
                         <div class="diagram-legend-item">
-                            <span class="legend-swatch" style="background:#a0b0c0;"></span> Storage &amp; Distribution
+                            <span class="legend-swatch" style="background:#a0b0c0;"></span> Warehouse
+                        </div>
+                        <div class="diagram-legend-item">
+                            <span class="legend-swatch" style="background:#b0bec5;"></span> Office / Welfare
                         </div>
                         <div class="diagram-legend-item">
                             <span class="legend-swatch legend-swatch-dashed"></span> Safety Aisles
                         </div>
                         <div class="diagram-legend-item">
-                            <span class="legend-swatch legend-swatch-circle"></span> Drain Locations
+                            <span class="legend-swatch" style="background:#3b82f6; width:24px; height:4px; border-radius:2px;"></span> Slot Drains
                         </div>
                     </div>
                     <p class="diagram-instruction">Click any zone to see the recommended flooring system</p>
