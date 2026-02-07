@@ -1,6 +1,13 @@
 // Mobile menu toggle
 document.getElementById('mobileToggle').addEventListener('click', function() {
-    document.getElementById('navMenu').classList.toggle('active');
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+    // Close all dropdowns when closing menu
+    if (!menu.classList.contains('active')) {
+        document.querySelectorAll('.nav-item.dropdown-open').forEach(function(item) {
+            item.classList.remove('dropdown-open');
+        });
+    }
 });
 
 // Mobile dropdown toggles
@@ -13,6 +20,7 @@ document.querySelectorAll('.nav-item').forEach(function(item) {
         // Only toggle on mobile (when hamburger is visible)
         if (window.innerWidth <= 768) {
             e.preventDefault();
+            e.stopPropagation();
             // Close other open dropdowns
             document.querySelectorAll('.nav-item.dropdown-open').forEach(function(other) {
                 if (other !== item) other.classList.remove('dropdown-open');

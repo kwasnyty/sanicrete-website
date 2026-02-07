@@ -283,9 +283,10 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-menu { position: fixed; top: 74px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 20px; box-shadow: var(--shadow-lg); transform: translateY(-150%); opacity: 0; transition: all 0.3s ease; max-height: calc(100vh - 74px); overflow-y: auto; }
   .nav-menu.active { transform: translateY(0); opacity: 1; }
   .mobile-toggle { display: flex; }
-  .dropdown { position: static; opacity: 0; visibility: hidden; max-height: 0; overflow: hidden; transform: none; box-shadow: none; padding: 0 0 0 15px; min-width: auto; transition: all 0.3s ease; }
-  .nav-item:hover .dropdown { transform: none; }
-  .nav-item.dropdown-open .dropdown { opacity: 1; visibility: visible; max-height: 500px; }
+  .dropdown { position: static; opacity: 0; visibility: hidden; max-height: 0; overflow: hidden; transform: none; box-shadow: none; padding: 0 0 0 15px; min-width: auto; border-radius: 0; transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; }
+  .nav-item:hover .dropdown { opacity: 0; visibility: hidden; max-height: 0; transform: none; }
+  .nav-item.dropdown-open .dropdown { opacity: 1; visibility: visible; max-height: 500px; padding: 5px 0 5px 15px; }
+  .nav-item.dropdown-open .dropdown-arrow { transform: rotate(180deg); }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .stat-grid { grid-template-columns: 1fr 1fr; }
