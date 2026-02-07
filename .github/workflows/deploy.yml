@@ -1,0 +1,75 @@
+name: Deploy to AWS S3 + CloudFront
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Sync all files to S3
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".DS_Store" \
+            --exclude ".gitignore" \
+            --exclude "IMAGE-GUIDE.md" \
+            --exclude "README.md" \
+            --exclude ".claude/*"
+
+      - name: Set cache headers for HTML (1 hour)
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --exclude "*" \
+            --include "*.html" \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/html; charset=utf-8" \
+            --metadata-directive REPLACE
+
+      - name: Set cache headers for CSS/JS (1 week)
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --exclude "*" \
+            --include "css/*.css" \
+            --include "js/*.js" \
+            --cache-control "public, max-age=604800" \
+            --metadata-directive REPLACE
+
+      - name: Set cache headers for images/downloads/videos (30 days)
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --exclude "*" \
+            --include "images/*" \
+            --include "downloads/*" \
+            --include "videos/*" \
+            --cache-control "public, max-age=2592000" \
+            --metadata-directive REPLACE
+
+      - name: Set cache headers for XML files (1 hour)
+        run: |
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} \
+            --exclude "*" \
+            --include "*.xml" \
+            --cache-control "public, max-age=3600" \
+            --content-type "application/xml" \
+            --metadata-directive REPLACE
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
