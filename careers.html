@@ -404,9 +404,8 @@
         </div>
     </footer>
 
+    <script src="js/nav.js"></script>
     <script>
-        document.getElementById('mobileToggle').addEventListener('click', function() { document.getElementById('navMenu').classList.toggle('active'); });
-
         function nextStep(step) {
             document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
             document.getElementById('step' + step).classList.add('active');

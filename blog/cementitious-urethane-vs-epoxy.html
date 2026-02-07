@@ -289,16 +289,7 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('mobileToggle').addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('active');
-        });
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav')) {
-                document.getElementById('navMenu').classList.remove('active');
-            }
-        });
-    </script>
+    <script src="../js/nav.js"></script>
 
     <!-- Tidio Chatbot -->
     <script src="//code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
