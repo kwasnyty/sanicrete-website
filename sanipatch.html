@@ -265,6 +265,33 @@
         </div>
     </footer>
         <script src="js/nav.js"></script>
+    <script>
+        document.getElementById('poForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var btn = form.querySelector('button[type="submit"]');
+            var originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.innerHTML = '<div style="text-align:center;padding:20px 0;"><h4 style="color:var(--primary);margin-bottom:10px;">PO Request Submitted!</h4><p style="color:var(--dark-gray);">We\'ll send your quote within 1 business day.</p></div>';
+                } else {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    alert('There was a problem submitting your request. Please try again or call us at 734-550-9445.');
+                }
+            }).catch(function() {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                alert('There was a problem submitting your request. Please try again or call us at 734-550-9445.');
+            });
+        });
+    </script>
 <!-- Tidio Chatbot -->
 <script src="https://code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
 </body>

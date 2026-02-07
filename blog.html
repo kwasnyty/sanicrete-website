@@ -624,6 +624,33 @@
     </footer>
 
     <script src="js/nav.js"></script>
+    <script>
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var btn = form.querySelector('button[type="submit"]');
+            var originalText = btn.textContent;
+            btn.textContent = 'Subscribing...';
+            btn.disabled = true;
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.innerHTML = '<p style="color:var(--primary);font-weight:600;font-size:1.1rem;">You\'re subscribed! Thanks for signing up.</p>';
+                } else {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                    alert('There was a problem subscribing. Please try again.');
+                }
+            }).catch(function() {
+                btn.textContent = originalText;
+                btn.disabled = false;
+                alert('There was a problem subscribing. Please try again.');
+            });
+        });
+    </script>
 
     <!-- Tidio Chatbot -->
     <script src="https://code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
