@@ -103,8 +103,8 @@ img { max-width: 100%; height: auto; display: block; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s ease; }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.card-image { height: 180px; background: linear-gradient(135deg, var(--primary-light), var(--primary)); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.card-image img { width: 100%; height: 100%; object-fit: cover; }
+.card-image { height: 180px; background: linear-gradient(135deg, var(--primary-light), var(--primary)); display: block; position: relative; overflow: hidden; }
+.card-image img { display: block; width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
 .card-image-icon { font-size: 3.5rem; color: var(--white); opacity: 0.9; }
 .card-content { padding: 25px; }
 .card-content h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
