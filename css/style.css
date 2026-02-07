@@ -103,7 +103,8 @@ img { max-width: 100%; height: auto; display: block; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 .card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s ease; }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.card-image { height: 180px; background: linear-gradient(135deg, var(--primary-light), var(--primary)); display: flex; align-items: center; justify-content: center; }
+.card-image { height: 180px; background: linear-gradient(135deg, var(--primary-light), var(--primary)); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
 .card-image-icon { font-size: 3.5rem; color: var(--white); opacity: 0.9; }
 .card-content { padding: 25px; }
 .card-content h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
@@ -222,23 +223,43 @@ img { max-width: 100%; height: auto; display: block; }
 .zone-card .zone-product { font-size: 0.95rem; font-weight: 600; color: var(--accent); }
 .zone-card .zone-product span { font-weight: 400; color: var(--text); font-size: 0.88rem; }
 
-/* Facility Diagram */
+/* Facility Diagram — Image Hotspot Map */
 .facility-diagram-wrapper { margin-bottom: 40px; }
-.facility-diagram { width: 100%; max-width: 1000px; margin: 0 auto; display: block; border-radius: 12px; overflow: visible; }
-.diagram-zone { cursor: pointer; }
-.diagram-zone rect { transition: filter 0.2s ease, stroke 0.2s ease; stroke: transparent; stroke-width: 0; }
-.diagram-zone:hover rect, .diagram-zone:focus rect { filter: brightness(1.2); stroke: #ffffff; stroke-width: 2; }
-.diagram-zone:focus { outline: none; }
-.diagram-zone:focus rect { stroke: #f59e0b; stroke-width: 3; }
-.diagram-zone-aisle line { transition: opacity 0.2s ease; }
-.diagram-zone-aisle:hover line { opacity: 1; stroke-width: 7; }
-.diagram-zone-drain circle { transition: r 0.2s ease, fill 0.2s ease; }
-.diagram-zone-drain:hover circle { fill: #1e3a5f; r: 10; }
-.diagram-legend { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 16px; }
-.diagram-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--dark-gray); }
-.legend-swatch { width: 16px; height: 16px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
-.legend-swatch-dashed { width: 24px; height: 4px; border-radius: 0; background: repeating-linear-gradient(90deg, #f59e0b 0, #f59e0b 8px, transparent 8px, transparent 14px); }
-.legend-swatch-circle { width: 14px; height: 14px; border-radius: 50%; background: #64748b; border: 2px solid #ffffff; box-shadow: 0 0 0 1px #c0c8d4; }
+.diagram-image-container { position: relative; max-width: 1000px; margin: 0 auto; }
+.facility-diagram-img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.diagram-hotspot {
+    position: absolute; display: block;
+    border: 2px solid transparent; border-radius: 6px;
+    background: transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer; z-index: 2;
+    text-decoration: none;
+}
+.diagram-hotspot:hover {
+    background: rgba(45, 74, 111, 0.18);
+    border-color: rgba(255,255,255,0.75);
+    box-shadow: 0 0 16px rgba(45,74,111,0.25);
+}
+.diagram-hotspot:focus {
+    outline: 3px solid #f59e0b;
+    outline-offset: 2px;
+    background: rgba(245, 158, 11, 0.08);
+}
+.diagram-tooltip {
+    position: absolute; z-index: 10; pointer-events: none;
+    background: #ffffff; border: 1px solid #c0c8d4;
+    border-radius: 8px; padding: 10px 16px;
+    box-shadow: 0 4px 16px rgba(10, 25, 41, 0.18);
+    white-space: nowrap;
+    font-family: 'Open Sans', sans-serif;
+}
+.diagram-tooltip-title {
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 0.9rem; color: #1e3a5f; margin-bottom: 3px;
+}
+.diagram-tooltip-product {
+    font-size: 0.82rem; color: #64748b; font-weight: 600;
+}
 .diagram-instruction { text-align: center; color: var(--dark-gray); font-size: 0.88rem; margin-top: 10px; }
 
 /* CTA */

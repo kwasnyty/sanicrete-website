@@ -1,105 +1,81 @@
-// Facility Diagram - Tooltip and Interactivity
+// Facility Diagram — Image Hotspot Tooltip Interactivity
 (function() {
-    var svg = document.querySelector('.facility-diagram');
-    if (!svg) return;
+    var container = document.querySelector('.diagram-image-container');
+    if (!container) return;
 
-    var tooltip = svg.querySelector('.diagram-tooltip');
-    var tooltipBg = tooltip.querySelector('.diagram-tooltip-bg');
+    var tooltip = container.querySelector('.diagram-tooltip');
     var tooltipTitle = tooltip.querySelector('.diagram-tooltip-title');
     var tooltipProduct = tooltip.querySelector('.diagram-tooltip-product');
-    var zones = svg.querySelectorAll('.diagram-zone');
+    var hotspots = container.querySelectorAll('.diagram-hotspot');
     var activeZone = null;
 
-    // Get SVG point from mouse event
-    function getSVGPoint(evt) {
-        var pt = svg.createSVGPoint();
-        pt.x = evt.clientX;
-        pt.y = evt.clientY;
-        return pt.matrixTransform(svg.getScreenCTM().inverse());
-    }
-
-    // Show tooltip at position
-    function showTooltip(zone, x, y) {
+    function showTooltip(zone, clientX, clientY) {
         var zoneName = zone.getAttribute('data-zone');
         var product = zone.getAttribute('data-product');
         tooltipTitle.textContent = zoneName;
-        tooltipProduct.textContent = '→ ' + product;
+        tooltipProduct.textContent = '\u2192 ' + product;
 
-        // Measure text width for tooltip sizing
-        var titleLen = zoneName.length * 8 + 24;
-        var productLen = (product.length + 2) * 7.5 + 24;
-        var tooltipWidth = Math.max(titleLen, productLen, 180);
-        tooltipBg.setAttribute('width', tooltipWidth);
+        // Position tooltip relative to container
+        var containerRect = container.getBoundingClientRect();
+        var tipX = clientX - containerRect.left + 15;
+        var tipY = clientY - containerRect.top - 60;
 
-        // Position with boundary checking
-        var tooltipX = x + 15;
-        var tooltipY = y - 70;
-        if (tooltipX + tooltipWidth > 985) tooltipX = x - tooltipWidth - 15;
-        if (tooltipY < 20) tooltipY = y + 20;
+        // Boundary checking
+        tooltip.style.display = 'block';
+        var tipRect = tooltip.getBoundingClientRect();
+        if (tipX + tipRect.width > containerRect.width - 10) {
+            tipX = clientX - containerRect.left - tipRect.width - 15;
+        }
+        if (tipY < 5) {
+            tipY = clientY - containerRect.top + 20;
+        }
 
-        tooltip.setAttribute('transform', 'translate(' + tooltipX + ',' + tooltipY + ')');
-        tooltip.style.display = '';
+        tooltip.style.left = tipX + 'px';
+        tooltip.style.top = tipY + 'px';
     }
 
     function hideTooltip() {
         tooltip.style.display = 'none';
     }
 
-    // Desktop: mouse events
-    zones.forEach(function(zone) {
+    hotspots.forEach(function(zone) {
+        // Desktop hover
         zone.addEventListener('mouseenter', function(e) {
-            var pt = getSVGPoint(e);
-            showTooltip(zone, pt.x, pt.y);
+            showTooltip(zone, e.clientX, e.clientY);
         });
-
         zone.addEventListener('mousemove', function(e) {
-            var pt = getSVGPoint(e);
-            showTooltip(zone, pt.x, pt.y);
+            showTooltip(zone, e.clientX, e.clientY);
         });
-
         zone.addEventListener('mouseleave', function() {
             hideTooltip();
         });
 
-        // Touch: first tap = show tooltip, second tap = navigate
+        // Touch: first tap = tooltip, second tap = navigate
         zone.addEventListener('touchstart', function(e) {
-            if (activeZone === zone) {
-                // Second tap - let the link navigate
-                return;
-            }
+            if (activeZone === zone) return; // second tap navigates
             e.preventDefault();
-            // Deactivate previous
-            if (activeZone) {
-                activeZone.classList.remove('diagram-zone-active');
-            }
+            if (activeZone) activeZone.classList.remove('diagram-hotspot-active');
             activeZone = zone;
-            zone.classList.add('diagram-zone-active');
-
+            zone.classList.add('diagram-hotspot-active');
             var touch = e.touches[0];
-            var pt = getSVGPoint(touch);
-            showTooltip(zone, pt.x, pt.y);
+            showTooltip(zone, touch.clientX, touch.clientY);
         }, { passive: false });
 
-        // Keyboard: focus/blur
+        // Keyboard
         zone.addEventListener('focus', function() {
-            var rect = zone.querySelector('rect') || zone.querySelector('line') || zone.querySelector('circle');
-            if (rect) {
-                var x = parseFloat(rect.getAttribute('cx') || rect.getAttribute('x1') || rect.getAttribute('x')) || 500;
-                var y = parseFloat(rect.getAttribute('cy') || rect.getAttribute('y1') || rect.getAttribute('y')) || 300;
-                showTooltip(zone, x, y);
-            }
+            var rect = zone.getBoundingClientRect();
+            showTooltip(zone, rect.left + rect.width / 2, rect.top);
         });
-
         zone.addEventListener('blur', function() {
             hideTooltip();
         });
     });
 
-    // Close tooltip on outside tap
+    // Close on outside tap
     document.addEventListener('touchstart', function(e) {
-        if (!e.target.closest('.diagram-zone')) {
+        if (!e.target.closest('.diagram-hotspot')) {
             if (activeZone) {
-                activeZone.classList.remove('diagram-zone-active');
+                activeZone.classList.remove('diagram-hotspot-active');
                 activeZone = null;
             }
             hideTooltip();
