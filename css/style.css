@@ -347,7 +347,7 @@ img { max-width: 100%; height: auto; display: block; }
   .newsletter-input-group { flex-direction: column; }
   .newsletter-input-group button { width: 100%; }
   .blog-grid { grid-template-columns: 1fr; }
-  .client-logos { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .client-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
   .client-logos img { height: 28px; }
   .facility-diagram-wrapper { display: none; }
 }
