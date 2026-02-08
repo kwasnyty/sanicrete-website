@@ -347,7 +347,7 @@ img { max-width: 100%; height: auto; display: block; }
   .newsletter-input-group { flex-direction: column; }
   .newsletter-input-group button { width: 100%; }
   .blog-grid { grid-template-columns: 1fr; }
-  .client-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px 20px; max-width: 100%; overflow: hidden; }
-  .client-logos img { height: auto; width: calc(28% - 15px); max-height: 30px; object-fit: contain; }
+  .client-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px 30px; }
+  .client-logos img { height: 25px; width: auto; max-width: 80px; object-fit: contain; }
   .facility-diagram-wrapper { display: none; }
 }
