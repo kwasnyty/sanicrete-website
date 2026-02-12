@@ -25,7 +25,18 @@ function handler(event) {
         '/flooring.html': '/',
         '/epoxy.html': '/products/sanicoat.html',
         '/urethane.html': '/products/sanicrete-sl.html',
-        '/info.html': '/resources.html'
+        '/info.html': '/resources.html',
+        '/contactus.html': '/contact.html',
+        '/selection.html': '/',
+        '/residentialflooring.html': '/',
+        // Old case studies
+        '/case-study/BaremansCS': '/projects.html',
+        '/info/KerryFoodCS': '/projects.html',
+        // Old data sheet and color guide paths
+        '/info/sl-stx-data/unsealed-color-selection.pdf': '/downloads/sanicrete-unsealed-color-guide.pdf',
+        '/info/sl-stx-data/sealed-color-selection.pdf': '/downloads/sanicrete-sealed-color-guide.pdf',
+        '/info/sanicoat-data/SaniCoatTDS.pdf': '/downloads/sanicoat-150p-tds.pdf',
+        '/info/saniflake-data/premier-color.pdf': '/downloads/saniflake-premier-color-guide.jpg'
     };
     if (redirects[uri]) {
         return {
@@ -33,6 +44,28 @@ function handler(event) {
             statusDescription: 'Moved Permanently',
             headers: {
                 'location': { value: redirects[uri] },
+                'cache-control': { value: 'max-age=86400' }
+            }
+        };
+    }
+
+    // Catch-all: any old case study or /info/ path not matched above
+    if (uri.startsWith('/case-study') || uri.startsWith('/casestudies')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                'location': { value: '/projects.html' },
+                'cache-control': { value: 'max-age=86400' }
+            }
+        };
+    }
+    if (uri.startsWith('/info/') && !uri.startsWith('/info.html')) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                'location': { value: '/resources.html' },
                 'cache-control': { value: 'max-age=86400' }
             }
         };

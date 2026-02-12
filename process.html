@@ -11,9 +11,11 @@
     <meta property="og:description" content="One company handles everything — site visit, surface prep, installation, and warranty.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.sanicrete.com/process.html">
+    <meta property="og:image" content="https://www.sanicrete.com/images/og-default.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Our Process | SaniCrete">
     <meta name="twitter:description" content="One company handles everything — site visit, surface prep, installation, and warranty.">
+    <meta name="twitter:image" content="https://www.sanicrete.com/images/og-default.jpg">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -26,6 +28,11 @@
       gtag('js', new Date());
       gtag('config', 'G-8KY0FN705H');
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://code.tidio.co">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -99,7 +106,7 @@
                     <p style="font-size: 1.1rem; line-height: 1.8;">That in-house control means faster response times and better communication. We've completed emergency repairs in 48 hours and full facility renovations over a single holiday weekend. When you only have one company to call, things move.</p>
                 </div>
                 <div>
-                    <img src="images/dry-mixer.png" alt="SaniCrete in-house dry mixer equipment used to manufacture proprietary flooring systems" style="width:100%; border-radius:10px;">
+                    <img loading="lazy" src="images/dry-mixer.png" alt="SaniCrete in-house dry mixer equipment used to manufacture proprietary flooring systems" style="width:100%; border-radius:10px;">
                 </div>
             </div>
         </div>
@@ -177,10 +184,7 @@
                 </div>
                 <div>
                     <div class="video-wrapper" style="border-radius:10px; overflow:hidden;">
-                        <video controls playsinline poster="images/beef-plant-scarifying.jpg" style="width:100%; height:100%; position:absolute; top:0; left:0; object-fit:cover;">
-                            <source src="videos/preperation.mov" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <iframe src="https://www.youtube-nocookie.com/embed/PmgGNFQf1H8" title="SaniCrete SL Installation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
                     </div>
                 </div>
             </div>
@@ -231,12 +235,12 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="images/logo-white.png" alt="SaniCrete" style="height:40px; width:auto;">
+                <img loading="lazy" src="images/logo-white.png" alt="SaniCrete" style="height:40px; width:auto;">
                 <p>Family-owned since 1990. Manufacturing and installing resinous flooring systems exclusively for food and beverage processing facilities nationwide.</p>
                 <p><strong>Phone:</strong> <a href="tel:7345509445">734-550-9445</a></p>
             </div>
             <div>
-                <h4>Products</h4>
+                <p class="footer-heading">Products</p>
                 <ul class="footer-links">
                     <li><a href="products/sanicrete-stx.html">SaniCrete STX</a></li>
                     <li><a href="products/sanicrete-sl.html">SaniCrete SL</a></li>
@@ -248,7 +252,7 @@
                 </ul>
             </div>
             <div>
-                <h4>Industries</h4>
+                <p class="footer-heading">Industries</p>
                 <ul class="footer-links">
                     <li><a href="industries/meat-poultry.html">Meat &amp; Poultry</a></li>
                     <li><a href="industries/dairy-cheese.html">Dairy &amp; Cheese</a></li>
@@ -263,7 +267,7 @@
                 </ul>
             </div>
             <div>
-                <h4>Company</h4>
+                <p class="footer-heading">Company</p>
                 <ul class="footer-links">
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="process.html">Our Process</a></li>
