@@ -34,6 +34,7 @@ function handler(event) {
         '/info/KerryFoodCS': '/projects.html',
         // Old data sheet and color guide paths
         '/info/sl-stx-data/unsealed-color-selection.pdf': '/downloads/sanicrete-unsealed-color-guide.pdf',
+        '/info/sl-stx-data/sealed-color-selection.pdf': '/downloads/sanicrete-sealed-color-guide.pdf',
         '/info/sanicoat-data/SaniCoatTDS.pdf': '/downloads/sanicoat-150p-tds.pdf',
         '/info/saniflake-data/premier-color.pdf': '/downloads/saniflake-premier-color-guide.jpg'
     };
