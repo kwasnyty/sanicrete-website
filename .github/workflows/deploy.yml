@@ -29,7 +29,8 @@ jobs:
             --exclude ".gitignore" \
             --exclude "IMAGE-GUIDE.md" \
             --exclude "README.md" \
-            --exclude ".claude/*"
+            --exclude ".claude/*" \
+            --exclude "cloudfront-function.js"
 
       - name: Set cache headers for HTML (1 hour)
         run: |
