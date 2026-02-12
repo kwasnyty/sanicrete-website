@@ -183,8 +183,11 @@
                     <p style="font-size: 1.1rem; line-height: 1.8;">All of our equipment runs on HEPA-filtered vacuums. In a food facility, airborne dust is a contamination risk &mdash; we treat the space accordingly, even during demo.</p>
                 </div>
                 <div>
-                    <div class="video-wrapper" style="border-radius:10px; overflow:hidden;">
-                        <iframe src="https://www.youtube-nocookie.com/embed/PmgGNFQf1H8" title="SaniCrete SL Installation Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+                    <div class="video-wrapper" data-video-id="PmgGNFQf1H8">
+                        <div class="video-thumbnail" onclick="loadVideo(this)">
+                            <img src="images/sanicrete-sl-install.jpg" alt="SaniCrete SL Installation">
+                            <div class="video-play-btn"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -284,6 +287,19 @@
         </div>
     </footer>
         <script src="js/nav.js"></script>
+    <script>
+    function loadVideo(el) {
+        var wrapper = el.closest('.video-wrapper');
+        var id = wrapper.dataset.videoId;
+        el.remove();
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+        iframe.title = 'SaniCrete Video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        wrapper.appendChild(iframe);
+    }
+    </script>
     <script src="https://code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
 </body>
 </html>

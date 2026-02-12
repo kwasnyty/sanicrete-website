@@ -67,8 +67,15 @@ img { max-width: 100%; height: auto; display: block; }
 .video-section { padding: 60px 20px; background: var(--light-gray); }
 .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
 .video-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
-.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: var(--primary-dark); }
-.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: var(--primary-dark); border-radius: 12px; overflow: hidden; }
+.video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-thumbnail { position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; z-index: 2; }
+.video-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+.video-thumbnail::after { content: ''; position: absolute; inset: 0; background: rgba(21, 41, 66, 0.3); transition: background 0.3s ease; }
+.video-thumbnail:hover::after { background: rgba(21, 41, 66, 0.15); }
+.video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; width: 72px; height: 72px; background: rgba(255, 255, 255, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; }
+.video-play-btn::after { content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 12px 0 12px 22px; border-color: transparent transparent transparent var(--primary); margin-left: 4px; }
+.video-thumbnail:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--white); box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4); }
 .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
 .video-placeholder-icon { font-size: 4rem; margin-bottom: 15px; opacity: 0.8; }
 .video-card h3 { padding: 20px; color: var(--primary); font-size: 1.1rem; }
