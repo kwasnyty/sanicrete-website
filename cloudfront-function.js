@@ -3,14 +3,30 @@
 // This eliminates duplicate URLs that cause Google Search Console issues
 //
 // What it does:
-// 1. Redirects /index.html → / (prevents duplicate homepage)
-// 2. Redirects extensionless URLs → .html (e.g., /about → /about.html)
-// 3. Redirects trailing-slash URLs → .html (e.g., /about/ → /about.html)
-// 4. Passes through static assets untouched (images, CSS, JS, etc.)
+// 1. Redirects legacy/old URLs to current paths (e.g., old TDS links)
+// 2. Redirects /index.html → / (prevents duplicate homepage)
+// 3. Redirects extensionless URLs → .html (e.g., /about → /about.html)
+// 4. Redirects trailing-slash URLs → .html (e.g., /about/ → /about.html)
+// 5. Passes through static assets untouched (images, CSS, JS, etc.)
 
 function handler(event) {
     var request = event.request;
     var uri = request.uri;
+
+    // Redirect old/legacy URLs to current paths
+    var redirects = {
+        '/info/sl-stx-data/sl-tds.pdf': '/downloads/sanicrete-sl-tds.pdf'
+    };
+    if (redirects[uri]) {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                'location': { value: redirects[uri] },
+                'cache-control': { value: 'max-age=86400' }
+            }
+        };
+    }
 
     // Pass through static assets — don't modify these
     if (uri.match(/\.(css|js|png|jpg|jpeg|gif|svg|ico|webp|webm|mp4|woff|woff2|ttf|eot|pdf|xml|txt|json|map)$/)) {
