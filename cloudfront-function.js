@@ -15,7 +15,17 @@ function handler(event) {
 
     // Redirect old/legacy URLs to current paths
     var redirects = {
-        '/info/sl-stx-data/sl-tds.pdf': '/downloads/sanicrete-sl-tds.pdf'
+        '/info/sl-stx-data/sl-tds.pdf': '/downloads/sanicrete-sl-tds.pdf',
+        // Legacy pages that no longer exist — redirect to best match
+        '/sanitary.html': '/products/sanitary-drains.html',
+        '/industrial.html': '/industries/commercial.html',
+        '/services.html': '/process.html',
+        '/products.html': '/',
+        '/home.html': '/',
+        '/flooring.html': '/',
+        '/epoxy.html': '/products/sanicoat.html',
+        '/urethane.html': '/products/sanicrete-sl.html',
+        '/info.html': '/resources.html'
     };
     if (redirects[uri]) {
         return {
