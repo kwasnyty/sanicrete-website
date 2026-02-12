@@ -25,7 +25,8 @@ function handler(event) {
         '/flooring.html': '/',
         '/epoxy.html': '/products/sanicoat.html',
         '/urethane.html': '/products/sanicrete-sl.html',
-        '/info.html': '/resources.html'
+        '/info.html': '/resources.html',
+        '/contactus.html': '/contact.html'
     };
     if (redirects[uri]) {
         return {
