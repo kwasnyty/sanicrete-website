@@ -27,7 +27,8 @@ function handler(event) {
         '/urethane.html': '/products/sanicrete-sl.html',
         '/info.html': '/resources.html',
         '/contactus.html': '/contact.html',
-        '/selection.html': '/'
+        '/selection.html': '/',
+        '/residentialflooring.html': '/'
     };
     if (redirects[uri]) {
         return {
