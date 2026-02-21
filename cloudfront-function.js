@@ -3,6 +3,7 @@
 // This eliminates duplicate URLs that cause Google Search Console issues
 //
 // What it does:
+// 0. Redirects non-www → www (prevents duplicate site in Google)
 // 1. Redirects legacy/old URLs to current paths (e.g., old TDS links)
 // 2. Redirects /index.html → / (prevents duplicate homepage)
 // 3. Redirects extensionless URLs → .html (e.g., /about → /about.html)
@@ -12,6 +13,19 @@
 function handler(event) {
     var request = event.request;
     var uri = request.uri;
+    var host = request.headers.host ? request.headers.host.value : '';
+
+    // Redirect non-www to www (canonical domain)
+    if (host === 'sanicrete.com') {
+        return {
+            statusCode: 301,
+            statusDescription: 'Moved Permanently',
+            headers: {
+                'location': { value: 'https://www.sanicrete.com' + uri },
+                'cache-control': { value: 'max-age=86400' }
+            }
+        };
+    }
 
     // Redirect old/legacy URLs to current paths
     var redirects = {
