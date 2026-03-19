@@ -126,6 +126,11 @@
 
   <!-- Blog Pages -->
   <url>
+    <loc>https://www.sanicrete.com/blog/chemical-room-flooring-ohio-cheese-facility.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.sanicrete.com/blog/7000-sf-oven-room-floor-sanicrete-stx-installation.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
