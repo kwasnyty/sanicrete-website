@@ -468,6 +468,12 @@
     <url>
         <loc>https://www.sanicrete.com/blog/ross-industries-demo-room-flooring.html</loc>
         <changefreq>monthly</changefreq>
+        <url>
+            <loc>https://www.sanicrete.com/blog/cooler-conversion-poultry-processing.html</loc>
+            <lastmod>2026-04-08</lastmod>
+            <changefreq>monthly</changefreq>
+            <priority>0.7</priority>
+        </url>
         <priority>0.7</priority>
     </url>
 </urlset>
