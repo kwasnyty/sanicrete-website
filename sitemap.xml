@@ -126,6 +126,24 @@
 
   <!-- Blog Pages -->
   <url>
+    <loc>https://www.sanicrete.com/blog/dairy-brick-under-conveyors-weekend-repair.html</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sanicrete.com/blog/food-plant-floor-audit-repair.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sanicrete.com/blog/usda-food-plant-flooring-requirements.html</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.sanicrete.com/blog/elevated-floor-stx-vr-cove.html</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -160,7 +178,7 @@
   </url>
   <url>
     <loc>https://www.sanicrete.com/blog.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
