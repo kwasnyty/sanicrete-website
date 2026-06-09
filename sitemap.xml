@@ -432,7 +432,7 @@
   </url>
   <url>
     <loc>https://www.sanicrete.com/industries/bakery-food.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -450,13 +450,13 @@
   </url>
   <url>
     <loc>https://www.sanicrete.com/industries/cold-storage.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sanicrete.com/industries/pharmaceutical.html</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -478,20 +478,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-    <url>
-        <loc>https://www.sanicrete.com/blog/5s-floor-marking-food-processing.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.sanicrete.com/blog/ross-industries-demo-room-flooring.html</loc>
-        <changefreq>monthly</changefreq>
-        <url>
-            <loc>https://www.sanicrete.com/blog/cooler-conversion-poultry-processing.html</loc>
-            <lastmod>2026-04-08</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.7</priority>
-        </url>
-        <priority>0.7</priority>
-    </url>
+  <url>
+    <loc>https://www.sanicrete.com/blog/5s-floor-marking-food-processing.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sanicrete.com/blog/ross-industries-demo-room-flooring.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.sanicrete.com/blog/cooler-conversion-poultry-processing.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
