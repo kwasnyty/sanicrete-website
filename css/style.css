@@ -330,6 +330,16 @@ img { max-width: 100%; height: auto; display: block; }
 .blog-post-content ul, .blog-post-content ol { margin: 15px 0; padding-left: 25px; }
 .blog-post-content li { margin-bottom: 8px; line-height: 1.7; }
 .blog-post-content blockquote { border-left: 4px solid var(--accent); padding: 15px 25px; margin: 25px 0; background: var(--light-gray); border-radius: 0 12px 12px 0; font-style: italic; color: var(--dark-gray); }
+.blog-figure { margin: 26px 0; }
+.blog-figure img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow); background: var(--light-gray); }
+.blog-figure figcaption { margin-top: 8px; color: var(--dark-gray); font-size: 0.86rem; line-height: 1.5; }
+.blog-figure-feature img { max-height: 560px; object-fit: cover; object-position: center; }
+.blog-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 28px 0; align-items: stretch; }
+.blog-photo-grid .blog-figure { margin: 0; }
+.blog-photo-grid img { height: 100%; min-height: 250px; object-fit: cover; }
+.blog-photo-grid .blog-figure-wide { grid-column: 1 / -1; }
+.blog-photo-grid .blog-figure-wide img { max-height: 430px; object-position: center; }
+.blog-photo-grid .blog-figure-contain img { object-fit: contain; background: var(--light-gray); }
 .blog-post-author { display: flex; align-items: center; gap: 15px; margin-top: 40px; padding-top: 25px; border-top: 2px solid var(--light-gray); }
 .blog-post-author h4 { color: var(--primary); font-size: 0.95rem; }
 .blog-post-author p { color: var(--dark-gray); font-size: 0.85rem; }
@@ -361,6 +371,9 @@ img { max-width: 100%; height: auto; display: block; }
   .newsletter-input-group { flex-direction: column; }
   .newsletter-input-group button { width: 100%; }
   .blog-grid { grid-template-columns: 1fr; }
+  .blog-photo-grid { grid-template-columns: 1fr; }
+  .blog-photo-grid img { height: auto; min-height: 0; }
+  .blog-figure-feature img, .blog-photo-grid .blog-figure-wide img { max-height: none; }
   .client-logos { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .client-logos img { height: 28px; }
   .facility-diagram-wrapper { display: none; }
