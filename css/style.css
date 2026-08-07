@@ -221,7 +221,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Projects */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-.project-card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+.project-card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: block; transition: transform 0.3s ease, box-shadow 0.3s ease; color: inherit; }
+.project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .project-image { height: 220px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); position: relative; }
 .project-tag { position: absolute; top: 12px; left: 12px; background: var(--accent); color: var(--white); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
 .project-content { padding: 20px; }
