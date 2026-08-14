@@ -176,7 +176,7 @@
             <div class="footer-brand">
                 <img loading="lazy" src="../images/logo-white.png" alt="SaniCrete" style="height:40px; width:auto;">
                 <p>Family-owned since 1990. Manufacturing and installing resinous flooring systems exclusively for food and beverage processing facilities nationwide.</p>
-                <p><strong>Phone:</strong> <a href="tel:7345509445">734-550-9445</a></p>
+                <p><strong>Phone:</strong> <a href="tel:7345509445" onclick="scTrack('phone_call_click','tel',150)">734-550-9445</a></p>
             </div>
             <div>
                 <p class="footer-heading">Products</p>
@@ -226,5 +226,30 @@
         <script src="../js/nav.js"></script>
     <!-- Tidio Chatbot -->
     <script src="https://code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
+<!-- SaniCrete conversion tracking -->
+<script>
+function scTrack(action, label, value){
+  try{
+    if(typeof gtag!=='function') return;
+    gtag('event', action, {event_category:'lead', event_label:label||'site', value:value||0});
+    var L=window.SC_ADS_LABELS&&window.SC_ADS_LABELS[action];
+    if(L) gtag('event','conversion',{send_to:'AW-742031087/'+L, value:value||0, currency:'USD'});
+  }catch(e){}
+}
+// Google Ads conversion labels. Create each conversion action in Google Ads,
+// then paste its label here to also count it as an Ads conversion.
+window.SC_ADS_LABELS = {
+  phone_call_click: '',   // <-- paste "Phone Click" label
+  chat_started:     ''    // <-- paste "Chat Started" label
+};
+// Tidio chat -> conversion
+document.addEventListener('tidioChat-ready', function(){
+  try{
+    tidioChatApi.on('messageFromVisitor', function(){
+      if(!window.__scChatTracked){ window.__scChatTracked=true; scTrack('chat_started','tidio',200); }
+    });
+  }catch(e){}
+});
+</script>
 </body>
 </html>
