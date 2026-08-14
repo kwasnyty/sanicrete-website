@@ -16,3 +16,8 @@
 @keyframes scFade{from{opacity:0}to{opacity:1}}
 @keyframes scUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media(max-width:520px){.sc-pop{margin:8vh 16px 0;padding:28px 20px 22px}.sc-pop h3{font-size:1.3rem}}
+.sc-code{font-family:ui-monospace,Menlo,monospace;font-size:1.6rem;font-weight:700;letter-spacing:2px;background:#f4f6f8;border:2px dashed var(--accent,#e87722);border-radius:10px;padding:16px;margin:6px 0 14px;color:var(--primary,#003b5c)}
+.sc-copy{padding:11px 18px;border:1.5px solid var(--primary,#003b5c);background:#fff;color:var(--primary,#003b5c);border-radius:8px;font-weight:700;cursor:pointer;width:100%;margin-bottom:10px}
+.sc-copy:hover{background:#f4f6f8}
+.sc-shop{display:block;padding:13px 18px;background:var(--accent,#e87722);color:#fff;border-radius:8px;font-weight:700;text-decoration:none}
+.sc-shop:hover{filter:brightness(.94)}
