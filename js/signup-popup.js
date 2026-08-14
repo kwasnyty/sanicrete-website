@@ -71,10 +71,18 @@
 
   function fire(){ if(shown||seen())return; shown=true; build(); }
   if (seen()) return;
+
+  // Landing pages get exit-intent ONLY (visitors are still orienting - never interrupt).
+  // Content pages also use scroll/time, since intent is already established.
+  var me = document.currentScript || document.querySelector('script[src*="signup-popup"]');
+  var exitOnly = me && me.getAttribute('data-sc-exit-only') === '1';
+
   document.addEventListener('mouseout', function(e){ if(!e.relatedTarget && e.clientY<=5) fire(); });
-  setTimeout(fire, 50000);
-  window.addEventListener('scroll', function(){
-    var h=document.body.scrollHeight-window.innerHeight;
-    if(h>0 && window.scrollY/h>0.6) fire();
-  }, {passive:true});
+  if (!exitOnly) {
+    setTimeout(fire, 50000);
+    window.addEventListener('scroll', function(){
+      var h=document.body.scrollHeight-window.innerHeight;
+      if(h>0 && window.scrollY/h>0.6) fire();
+    }, {passive:true});
+  }
 })();
