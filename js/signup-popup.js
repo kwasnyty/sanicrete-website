@@ -3,6 +3,22 @@
 (function () {
   var KEY = 'sc_popup_seen', DAYS = 30, CODE = 'SANIPATCH25', shown = false;
 
+  // Two audiences, two offers. Product page = discount code (immediate purchase intent).
+  // Blog/service pages = free assessment (these readers are researching a real floor project,
+  // worth far more than a $47 patch-kit discount).
+  var isProduct = /sanipatch/i.test(location.pathname);
+  var OFFER = isProduct ? {
+    h: 'Get 25% off your first SaniPatch',
+    sub: 'Plus practical floor-repair tips for food plants. New customers only. No spam, unsubscribe anytime.',
+    btn: 'Get my code',
+    kind: 'code'
+  } : {
+    h: 'Free floor assessment for your plant',
+    sub: 'Tell us where to reach you and Tyler will review your floor situation - wear, drains, shutdown windows - and what it would take to fix. No pressure, no obligation.',
+    btn: 'Request my assessment',
+    kind: 'assessment'
+  };
+
   function seen(){ try{var v=localStorage.getItem(KEY);return v&&(Date.now()-+v)<DAYS*864e5;}catch(e){return false;} }
   function mark(){ try{localStorage.setItem(KEY,Date.now());}catch(e){} }
 
@@ -14,21 +30,26 @@
       '<div class="sc-pop" role="dialog" aria-modal="true" aria-labelledby="sc-pop-h">' +
         '<button class="sc-pop-x" aria-label="Close">&times;</button>' +
         '<div class="sc-step sc-step-1">' +
-          '<h3 id="sc-pop-h">Get 25% off your first SaniPatch</h3>' +
-          '<p class="sc-pop-sub">Plus practical floor-repair tips for food plants. New customers only. No spam, unsubscribe anytime.</p>' +
+          '<h3 id="sc-pop-h">' + OFFER.h + '</h3>' +
+          '<p class="sc-pop-sub">' + OFFER.sub + '</p>' +
           '<form class="sc-pop-form" novalidate>' +
             '<input type="email" name="EMAIL" required placeholder="you@company.com" aria-label="Email address">' +
-            '<button type="submit">Get my code</button>' +
+            '<button type="submit">' + OFFER.btn + '</button>' +
           '</form>' +
           '<p class="sc-pop-fine">By signing up you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>' +
         '</div>' +
         '<div class="sc-step sc-step-2" hidden>' +
-          '<h3>Here\'s your code</h3>' +
-          '<p class="sc-pop-sub">25% off your first SaniPatch order. We also emailed it to you.</p>' +
-          '<div class="sc-code" id="sc-code">' + CODE + '</div>' +
-          '<button type="button" class="sc-copy">Copy code</button>' +
-          '<a class="sc-shop" href="https://square.link/u/EgQnaCny" target="_blank" rel="noopener">Shop SaniPatch &rarr;</a>' +
-          '<p class="sc-pop-fine">Enter it at checkout. One use per customer.</p>' +
+          (OFFER.kind === 'code'
+            ? '<h3>Here\'s your code</h3>' +
+              '<p class="sc-pop-sub">25% off your first SaniPatch order. We also emailed it to you.</p>' +
+              '<div class="sc-code">' + CODE + '</div>' +
+              '<button type="button" class="sc-copy">Copy code</button>' +
+              '<a class="sc-shop" href="https://square.link/u/EgQnaCny" target="_blank" rel="noopener">Shop SaniPatch &rarr;</a>' +
+              '<p class="sc-pop-fine">Enter it at checkout. One use per customer.</p>'
+            : '<h3>Got it - Tyler will be in touch</h3>' +
+              '<p class="sc-pop-sub">Usually within one business day. If it is urgent, call directly.</p>' +
+              '<a class="sc-shop" href="tel:7345509445">Call (734) 550-9445</a>' +
+              '<p class="sc-pop-fine">Meanwhile, feel free to keep reading. We will not spam you.</p>') +
         '</div>' +
       '</div>' +
       '<iframe name="sc-sink" style="display:none" title="hidden"></iframe>';
@@ -54,12 +75,12 @@
         '<input name="b_1b90550e594ba5119498c43eb_b9adf19471" value="">';
       document.body.appendChild(mc); mc.submit();
       mark();
-      if (typeof scTrack === 'function') scTrack('email_signup', 'popup', 50);
+      if (typeof scTrack === 'function') scTrack('email_signup', OFFER.kind === 'code' ? 'popup-sanipatch' : 'popup-assessment', OFFER.kind === 'code' ? 50 : 200);
       o.querySelector('.sc-step-1').hidden = true;
       o.querySelector('.sc-step-2').hidden = false;
     });
 
-    o.querySelector('.sc-copy').addEventListener('click', function () {
+    var cp = o.querySelector('.sc-copy'); if (cp) cp.addEventListener('click', function () {
       var btn = this;
       try { navigator.clipboard.writeText(CODE); btn.textContent = 'Copied'; }
       catch (e) { btn.textContent = 'Select and copy: ' + CODE; }
