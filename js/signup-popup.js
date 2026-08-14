@@ -73,7 +73,8 @@
       mc.method = 'post'; mc.target = 'sc-sink'; mc.style.display = 'none';
       mc.innerHTML =
         '<input name="EMAIL" value="' + email.replace(/"/g,'&quot;') + '">' +
-        '<input name="SOURCE" value="' + (document.title||'').slice(0,60).replace(/"/g,'') + '">' +
+        '<input name="SOURCE" value="' + OFFER.kind + '">' +
+        '<input name="PAGE" value="' + (document.title||'').slice(0,60).replace(/"/g,'') + '">' +
         '<input name="b_1b90550e594ba5119498c43eb_b9adf19471" value="">';
       document.body.appendChild(mc); mc.submit();
       mark();
