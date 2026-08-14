@@ -7,3 +7,4 @@ Sitemap: https://www.sanicrete.com/sitemap.xml
 
 # Disallow admin/private areas (add if needed)
 # Disallow: /admin/
+Sitemap: https://www.sanicrete.com/sitemap-images.xml
