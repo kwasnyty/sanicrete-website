@@ -46,10 +46,10 @@
               '<button type="button" class="sc-copy">Copy code</button>' +
               '<a class="sc-shop" href="https://square.link/u/EgQnaCny" target="_blank" rel="noopener">Shop SaniPatch &rarr;</a>' +
               '<p class="sc-pop-fine">Enter it at checkout. One use per customer.</p>'
-            : '<h3>Got it - Tyler will be in touch</h3>' +
-              '<p class="sc-pop-sub">Usually within one business day. If it is urgent, call directly.</p>' +
+            : '<h3>Request received</h3>' +
+              '<p class="sc-pop-sub">We will review your facility and follow up. If you would rather talk now, call anytime.</p>' +
               '<a class="sc-shop" href="tel:7345509445">Call (734) 550-9445</a>' +
-              '<p class="sc-pop-fine">Meanwhile, feel free to keep reading. We will not spam you.</p>') +
+              '<p class="sc-pop-fine">No spam. Unsubscribe anytime.</p>') +
         '</div>' +
       '</div>' +
       '<iframe name="sc-sink" style="display:none" title="hidden"></iframe>';
