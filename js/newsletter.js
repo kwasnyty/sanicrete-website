@@ -31,10 +31,10 @@
       var done = document.createElement('div');
       done.className = 'sc-nl-done';
       done.innerHTML =
-        '<p><strong>You\'re in.</strong> Here\'s 25% off your first SaniPatch:</p>' +
+        '<p><strong>You\'re in.</strong> 25% off your first SaniPatch:</p>' +
         '<div class="sc-code">' + CODE + '</div>' +
         '<a class="sc-shop" href="https://square.link/u/EgQnaCny" target="_blank" rel="noopener">Shop SaniPatch &rarr;</a>' +
-        '<p style="font-size:.8rem;color:#888;margin-top:10px;">Enter it at checkout. One use per customer. We emailed it to you too.</p>';
+        '<p style="font-size:.8rem;color:#888;margin-top:10px;">Enter at checkout. One use per customer.</p>';
       form.parentNode.replaceChild(done, form);
     });
   }

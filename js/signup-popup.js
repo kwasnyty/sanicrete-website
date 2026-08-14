@@ -7,15 +7,17 @@
   // Blog/service pages = free assessment (these readers are researching a real floor project,
   // worth far more than a $47 patch-kit discount).
   var isProduct = /sanipatch/i.test(location.pathname);
+  // Copy follows B2B popup research: one headline, one offer, one CTA.
+  // Headline states exactly what they get. Subtext stays to a single short line.
   var OFFER = isProduct ? {
-    h: 'Get 25% off your first SaniPatch',
-    sub: 'Plus practical floor-repair tips for food plants. New customers only. No spam, unsubscribe anytime.',
+    h: '25% off your first SaniPatch',
+    sub: 'Repair kit for food plant floors. New customers only.',
     btn: 'Get my code',
     kind: 'code'
   } : {
-    h: 'Free floor assessment for your plant',
-    sub: 'Tell us where to reach you and Tyler will review your floor situation - wear, drains, shutdown windows - and what it would take to fix. No pressure, no obligation.',
-    btn: 'Request my assessment',
+    h: 'Free floor assessment',
+    sub: 'Find out what your floor needs and what it costs.',
+    btn: 'Get my assessment',
     kind: 'assessment'
   };
 
@@ -41,13 +43,13 @@
         '<div class="sc-step sc-step-2" hidden>' +
           (OFFER.kind === 'code'
             ? '<h3>Here\'s your code</h3>' +
-              '<p class="sc-pop-sub">25% off your first SaniPatch order. We also emailed it to you.</p>' +
+              '<p class="sc-pop-sub">Emailed to you as well.</p>' +
               '<div class="sc-code">' + CODE + '</div>' +
               '<button type="button" class="sc-copy">Copy code</button>' +
               '<a class="sc-shop" href="https://square.link/u/EgQnaCny" target="_blank" rel="noopener">Shop SaniPatch &rarr;</a>' +
               '<p class="sc-pop-fine">Enter it at checkout. One use per customer.</p>'
-            : '<h3>Request received</h3>' +
-              '<p class="sc-pop-sub">We will review your facility and follow up. If you would rather talk now, call anytime.</p>' +
+            : '<h3>Got it</h3>' +
+              '<p class="sc-pop-sub">We will be in touch. Want to talk sooner?</p>' +
               '<a class="sc-shop" href="tel:7345509445">Call (734) 550-9445</a>' +
               '<p class="sc-pop-fine">No spam. Unsubscribe anytime.</p>') +
         '</div>' +
