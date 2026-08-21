@@ -7,6 +7,17 @@
     <meta name="description" content="The page you're looking for could not be found. Browse SaniCrete's USDA-compliant flooring products or contact us for help.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script>
+      (function () {
+        var redirects = {
+          '/food-processing/flooring.html': '/industries/meat-poultry.html'
+        };
+        var target = redirects[window.location.pathname];
+        if (target) {
+          window.location.replace(target + window.location.search + window.location.hash);
+        }
+      }());
+    </script>
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
