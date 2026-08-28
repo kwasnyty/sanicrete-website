@@ -36,6 +36,7 @@
           '<p class="sc-pop-sub">' + OFFER.sub + '</p>' +
           '<form class="sc-pop-form" novalidate>' +
             '<input type="email" name="EMAIL" required placeholder="you@company.com" aria-label="Email address">' +
+            '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;">' +
             '<button type="submit">' + OFFER.btn + '</button>' +
           '</form>' +
           '<p class="sc-pop-fine">By signing up you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>' +
@@ -67,6 +68,8 @@
       e.preventDefault();
       var email = f.querySelector('input[name=EMAIL]').value.trim();
       if (!email || email.indexOf('@') < 1) { f.querySelector('input').focus(); return; }
+      var trap = f.querySelector('input[name=_gotcha]');
+      if (trap && trap.value) { mark(); close(); return; }
       // post to Mailchimp through a hidden iframe so the visitor never leaves the page
       var mc = document.createElement('form');
       mc.action = 'https://sanicrete.us15.list-manage.com/subscribe/post?u=1b90550e594ba5119498c43eb&id=b9adf19471';

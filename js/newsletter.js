@@ -7,6 +7,17 @@
   function upgrade(form) {
     if (form.dataset.scReady) return;
     form.dataset.scReady = '1';
+    var trap = form.querySelector('input[name="_gotcha"]');
+    if (!trap) {
+      trap = document.createElement('input');
+      trap.type = 'text';
+      trap.name = '_gotcha';
+      trap.tabIndex = -1;
+      trap.autocomplete = 'off';
+      trap.setAttribute('aria-hidden', 'true');
+      trap.style.cssText = 'position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;';
+      form.appendChild(trap);
+    }
     if (!document.querySelector('iframe[name=sc-sink]')) {
       var fr = document.createElement('iframe');
       fr.name = 'sc-sink'; fr.style.display = 'none'; fr.title = 'hidden';
@@ -17,6 +28,7 @@
       var input = form.querySelector('input[type=email]');
       var email = input ? input.value.trim() : '';
       if (!email || email.indexOf('@') < 1) { if (input) input.focus(); return; }
+      if (trap && trap.value) return;
 
       var mc = document.createElement('form');
       mc.action = MC; mc.method = 'post'; mc.target = 'sc-sink'; mc.style.display = 'none';
