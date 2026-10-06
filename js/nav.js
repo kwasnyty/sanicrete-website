@@ -40,12 +40,5 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Google Ads - Phone Call Click Conversion Tracking
-document.addEventListener('click', function(e) {
-    var link = e.target.closest('a[href^="tel:"]');
-    if (link && typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-742031087/nO2jCOa24f0bEO_96eEC'
-        });
-    }
-});
+// Phone-click conversion tracking is handled by each tel: link through scTrack().
+// Keep it in one place so a single click cannot fire two Google Ads actions.
