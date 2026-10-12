@@ -62,6 +62,13 @@
         .how-it-works-card p { color: var(--dark-gray); margin: 0; }
         @media(max-width:768px) { .order-options { grid-template-columns: 1fr; } .how-it-works-grid { grid-template-columns: repeat(2, 1fr); } }
         @media(max-width:480px) { .how-it-works-grid { grid-template-columns: 1fr; } }
+        .kit-photo { background: none; min-height: 0; border-radius: 12px; }
+        .guide-btn { display: inline-block; }
+        .downloads-section h3 { text-align: center; margin-bottom: 16px; }
+        .downloads-section .download-links { justify-content: center; }
+        .downloads-section .download-btn { font-size: 0.95rem; padding: 14px 22px; }
+        .download-btn-primary { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .download-btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
     </style>
     <script type="application/ld+json">
 {
@@ -176,7 +183,7 @@
                             <p><strong>You supply:</strong> a 1/2&quot; drill with a spiral or mud mixing paddle, a cement trowel and a loop texture roller.</p>
                         </div>
                     </div>
-                    <div class="two-col-image"><img loading="lazy" src="images/sanipatch-kit-2026.jpg" alt="SaniPatch concrete repair kit: Part 1 resin, Part 2 hardener, Part 3 pre-tinted aggregate, quartz for broadcast, and 5-gallon mixing pail" style="width: 100%; border-radius: 12px;"></div>
+                    <div class="two-col-image kit-photo"><img loading="lazy" src="images/sanipatch-kit-2026.jpg" alt="SaniPatch concrete repair kit: Part 1 resin, Part 2 hardener, Part 3 pre-tinted aggregate, quartz for broadcast, and 5-gallon mixing pail" width="1800" height="1080" style="width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow);"></div>
                 </div>
 
                 <h3 style="color: var(--primary); text-align: center; margin: 50px 0 20px;">Common Problems SaniPatch Solves</h3>
@@ -213,7 +220,9 @@
                     <article class="how-it-works-card"><img loading="lazy" src="images/sanipatch-step-3-pour-trowel.jpg" alt="Pouring and troweling mixed SaniPatch"><div><h4>3. Pour and trowel</h4><p>Pour right away and level it with a cement trowel. You have about 10 minutes of working time.</p></div></article>
                     <article class="how-it-works-card"><img loading="lazy" src="images/sanipatch-step-4-roll.jpg" alt="Rolling SaniPatch before broadcasting quartz"><div><h4>4. Roll and broadcast</h4><p>Lightly roll with a loop texture roller, then broadcast the included quartz for a non-slip finish.</p></div></article>
                 </div>
-                <p style="text-align: center;">Full step-by-step instructions are in the Installation Guide below.</p>
+                <p style="text-align: center; margin: 24px 0 0;">
+                    <a href="downloads/sanipatch-installation-guide.pdf" target="_blank" class="btn btn-sanipatch guide-btn">Download the Installation Guide (PDF)</a>
+                </p>
                 <div class="sanipatch-video" style="max-width: 900px; margin: 32px auto 0;">
   <video controls playsinline preload="none"
          poster="images/sanipatch-video-poster.jpg"
@@ -306,7 +315,7 @@
                 <div class="downloads-section" style="max-width: 700px; margin: 40px auto 0;">
                     <h3>📥 Downloads</h3>
                     <div class="download-links">
-                        <a href="downloads/sanipatch-installation-guide.pdf" class="download-btn" target="_blank">📄 SaniPatch Installation Guide and Technical Data</a>
+                        <a href="downloads/sanipatch-installation-guide.pdf" class="download-btn download-btn-primary" target="_blank">📄 SaniPatch Installation Guide and Technical Data</a>
                         <a href="downloads/sanipatch-flyer.pdf" class="download-btn" target="_blank">📄 SaniPatch Flyer</a>
                     </div>
                 </div>
