@@ -27,6 +27,8 @@ build/
 videos/*.mp4
 videos/*.mov
 videos/*.avi
+# Exception: the SaniPatch how-to is self-hosted on purpose (brief 2026-10-12)
+!videos/sanipatch-how-to.mp4
 
 # Claude config
 .claude/
