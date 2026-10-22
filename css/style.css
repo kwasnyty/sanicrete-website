@@ -338,7 +338,7 @@ img { max-width: 100%; height: auto; display: block; }
 .blog-figure-feature img { max-height: 560px; object-fit: cover; object-position: center; }
 .blog-photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 28px 0; align-items: stretch; }
 .blog-photo-grid .blog-figure { margin: 0; }
-.blog-photo-grid img { height: 100%; min-height: 250px; object-fit: cover; }
+.blog-photo-grid img { height: 320px; min-height: 0; object-fit: cover; }
 .blog-photo-grid .blog-figure-wide { grid-column: 1 / -1; }
 .blog-photo-grid .blog-figure-wide img { max-height: 430px; object-position: center; }
 .blog-photo-grid .blog-figure-contain img { object-fit: contain; background: var(--light-gray); }
