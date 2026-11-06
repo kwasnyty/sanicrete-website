@@ -399,6 +399,7 @@
         var co = (document.getElementById('poCompany').value || '').trim();
         var q = document.getElementById('poQty').value;
         document.getElementById('poSubject').value = 'SaniPatch PO request: ' + (co || 'no company given') + ' - ' + q;
+        try { sessionStorage.setItem('sc_form', 'sanipatch'); } catch (e) {}
     });
     </script>
 <!-- Tidio Chatbot -->

@@ -25,7 +25,9 @@
          an Ads conversion; job applications and newsletter signups do not. -->
     <script>
       (function(){
-        var from = (new URLSearchParams(location.search).get('from') || 'quote').replace(/[^a-z]/g,'');
+        var from = new URLSearchParams(location.search).get('from');
+        if (!from) { try { from = sessionStorage.getItem('sc_form'); sessionStorage.removeItem('sc_form'); } catch (e) {} }
+        from = (from || 'quote').replace(/[^a-z]/g,'');
         window.SC_THANKS_FROM = from;
         var leadValue = { quote: 300, sanipatch: 100 }[from];
         if (leadValue) {

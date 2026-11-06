@@ -905,6 +905,7 @@
     document.getElementById('applicationForm').addEventListener('submit', function (e) {
         if (!stepIsValid(TOTAL_STEPS)) { e.preventDefault(); return; }
         relabelForEmail(this);
+        try { sessionStorage.setItem('sc_form', 'careers'); } catch (e) {}
         if (typeof scTrack === 'function') scTrack('form_submit_lead', 'careers_application', 0);
     });
     // Deep links like careers.html#apply?pos=foreman from job boards

@@ -283,6 +283,7 @@
     document.getElementById('contactForm').addEventListener('submit', function () {
         var co = (document.getElementById('company').value || '').trim();
         document.getElementById('quoteSubject').value = 'Quote request: ' + (co || 'no company given');
+        try { sessionStorage.setItem('sc_form', 'quote'); } catch (e) {}   // thanks.html reads this; Formspree strips ?from=
     });
     </script>
 <!-- Tidio Chatbot -->
