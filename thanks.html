@@ -29,8 +29,13 @@
         if (!from) { try { from = sessionStorage.getItem('sc_form'); sessionStorage.removeItem('sc_form'); } catch (e) {} }
         from = (from || 'quote').replace(/[^a-z]/g,'');
         window.SC_THANKS_FROM = from;
+        // a refresh or back-button revisit must not count as a second lead
+        var fired = false;
+        try { fired = sessionStorage.getItem('sc_thanks_fired') === '1'; sessionStorage.setItem('sc_thanks_fired', '1'); } catch (e) {}
         var leadValue = { quote: 300, sanipatch: 100 }[from];
-        if (leadValue) {
+        if (fired) {
+          // already counted this session
+        } else if (leadValue) {
           gtag('event', 'conversion', {'send_to': 'AW-742031087/msd8COO24f0bEO_96eEC', 'value': leadValue, 'currency': 'USD'});
           gtag('event', 'form_submit_lead', {event_category:'lead', event_label: from === 'quote' ? 'contact_form' : 'sanipatch_po', value: leadValue});
         } else if (from === 'careers') {

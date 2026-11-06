@@ -155,7 +155,7 @@
                 </div>
                 <div class="contact-form">
                     <h3 style="color: var(--primary); margin-bottom: 25px;">Request a Quote</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xkovwkkk" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/xkovwkkk" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_next" value="https://www.sanicrete.com/thanks.html?from=quote">
                         <input type="hidden" name="_subject" id="quoteSubject" value="Website quote request">
                         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden;">
@@ -182,6 +182,16 @@
                         <div class="form-group">
                             <label for="company">Company Name *</label>
                             <input type="text" id="company" name="Company" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="facilityCity">Facility City *</label>
+                                <input type="text" id="facilityCity" name="Facility city" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="facilityState">Facility State *</label>
+                                <input type="text" id="facilityState" name="Facility state" placeholder="e.g., MI" required>
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
@@ -214,6 +224,23 @@
                                 <option value="6-12 Months">6-12 Months</option>
                                 <option value="Just Planning">Just Planning</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label>What's going on with the floor? <span style="font-weight:400;color:var(--dark-gray);">(check all that apply)</span></label>
+                            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 20px;margin-top:8px;">
+                                <div class="checkbox-group"><input type="checkbox" id="fp1" name="Floor problems" value="Coating peeling or delaminating"><label for="fp1">Coating peeling or delaminating</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp2" name="Floor problems" value="Cracks, spalling, or potholes"><label for="fp2">Cracks, spalling, or potholes</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp3" name="Floor problems" value="Drains, slope, or standing water"><label for="fp3">Drains, slope, or standing water</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp4" name="Floor problems" value="Failed tile or brick"><label for="fp4">Failed tile or brick</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp5" name="Floor problems" value="Bare or sealed concrete, needs a system"><label for="fp5">Bare or sealed concrete, needs a system</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp6" name="Floor problems" value="Slippery or hard to clean"><label for="fp6">Slippery or hard to clean</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp7" name="Floor problems" value="New construction or expansion"><label for="fp7">New construction or expansion</label></div>
+                                <div class="checkbox-group"><input type="checkbox" id="fp8" name="Floor problems" value="Audit or inspection finding"><label for="fp8">Audit or inspection finding</label></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="floorPhoto">Photo of the floor <span style="font-weight:400;color:var(--dark-gray);">(optional, a phone picture is fine)</span></label>
+                            <input type="file" id="floorPhoto" name="Floor photo" accept="image/*,.pdf" style="padding:10px 0;">
                         </div>
                         <div class="form-group">
                             <label for="message">Project Details</label>
@@ -282,7 +309,8 @@
     // Put the company in the Formspree email subject so quote requests sort at a glance.
     document.getElementById('contactForm').addEventListener('submit', function () {
         var co = (document.getElementById('company').value || '').trim();
-        document.getElementById('quoteSubject').value = 'Quote request: ' + (co || 'no company given');
+        var where = [document.getElementById('facilityCity').value, document.getElementById('facilityState').value].map(function (v) { return (v || '').trim(); }).filter(Boolean).join(', ');
+        document.getElementById('quoteSubject').value = 'Quote request: ' + (co || 'no company given') + (where ? ' (' + where + ')' : '');
         try { sessionStorage.setItem('sc_form', 'quote'); } catch (e) {}   // thanks.html reads this; Formspree strips ?from=
     });
     </script>
