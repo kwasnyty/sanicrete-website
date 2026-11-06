@@ -441,7 +441,7 @@
                 <form id="applicationForm" action="https://formspree.io/f/xgolwrrn" method="POST">
                     <input type="hidden" name="_next" value="https://www.sanicrete.com/thanks.html">
                     <input type="hidden" name="_subject" id="formSubject" value="Careers application">
-                    <input type="hidden" name="form" value="careers-application">
+                    <input type="hidden" name="00. Form" value="Careers application (sanicrete.com/careers)">
 
                     <!-- Step 1: About you -->
                     <div class="form-step active" id="step1">
@@ -826,8 +826,84 @@
         h += '<p><strong>Start:</strong> ' + g('startDate') + ' &nbsp; <strong>Heard about us:</strong> ' + g('heardFrom') + '</p>';
         document.getElementById('reviewContent').innerHTML = h;
     }
+    // Formspree labels each answer with the field's name attribute. Right before the
+    // browser builds the POST body, swap the short code names for the numbered full
+    // question text so the notification email reads like the questionnaire.
+    var QUESTION_LABELS = {
+        firstName: '01. First name',
+        lastName: '02. Last name',
+        email: '03. Email',
+        phone: '04. Phone',
+        city: '05. City',
+        state: '06. State',
+        zip: '07. ZIP code',
+        distanceToShop: '08. How far are you from our Whitmore Lake shop?',
+        referredBy: '09. Were you referred by someone at SaniCrete?',
+        position: '10. Position applying for',
+        canTravel: '11. Can you travel nationwide for trips that run from 4 days up to a month at a time?',
+        shutdowns: '12. Can you work nights, weekends, and holidays during plant shutdowns?',
+        reliableTransport: '13. Do you have a reliable way to get to our Whitmore Lake shop before and after trips?',
+        license: '14. Do you have a valid driver license?',
+        cleanRecord: '15. Clean driving record for the past 3 years?',
+        truckTrailer: '16. How comfortable are you driving a truck with a trailer long distances?',
+        workAuthorized: '17. Are you legally authorized to work in the United States?',
+        yearsExperience: '18. Years of hands-on trade or construction work',
+        skills: '19. Checked everything they have personally done',
+        machinesOperated: '20. Which floor prep machines or tools have you personally run?',
+        handsOnExperience: '21. Describe your hands-on experience',
+        yearsLeadingCrews: '22. FOREMAN - Years leading a crew',
+        largestCrew: '23. FOREMAN - Largest crew you have run',
+        shutdownYouRan: '24. FOREMAN - Describe a shutdown or large pour you ran',
+        whyTravelJob: '25. Why do you want a travel job instead of a local one?',
+        whatWouldBeHard: '26. What would make this job hard for you?',
+        startDate: '27. When can you start?',
+        heardFrom: '28. How did you hear about us?',
+        workHistory: '29. Recent work history',
+        additionalInfo: '30. Anything else you want us to know?',
+        certify: '31. Certified that all information is accurate and complete'
+    };
+    function relabelForEmail(form) {
+        var isForeman = /Foreman/.test(document.getElementById('position').value);
+        var skills = [];
+        var els = Array.prototype.slice.call(form.elements);
+        els.forEach(function (el) {
+            var key = el.getAttribute('data-key') || el.name;
+            if (!key || !QUESTION_LABELS[key]) return;
+            el.setAttribute('data-key', key);
+            if (key === 'skills') {
+                if (el.checked) skills.push(el.value);
+                el.disabled = true;            // collapsed into one line below
+                return;
+            }
+            if (!isForeman && /^(yearsLeadingCrews|largestCrew|shutdownYouRan)$/.test(key)) {
+                el.disabled = true;            // not asked of installers, keep them out of the email
+                return;
+            }
+            if (el.type === 'radio') {
+                if (!el.checked) { el.disabled = true; return; }   // only the chosen answer is sent
+            } else if (el.tagName === 'SELECT' && el.value === '') {
+                var opt = document.createElement('option'); opt.text = '(not answered)'; el.add(opt); el.value = '(not answered)';
+            } else if (el.type !== 'checkbox' && el.value.trim() === '') {
+                el.value = '(not answered)';
+            }
+            el.name = QUESTION_LABELS[key];
+        });
+        var addHidden = function (name, value, before) {
+            var h = form.querySelector('input[type="hidden"][name="' + name.replace(/"/g, '') + '"]');
+            if (!h) {
+                h = document.createElement('input'); h.type = 'hidden'; h.name = name;
+                if (before) before.parentNode.insertBefore(h, before); else form.appendChild(h);
+            }
+            h.value = value;
+        };
+        // keep the skills line in questionnaire order (right where the checkboxes sit)
+        addHidden(QUESTION_LABELS.skills, skills.length ? skills.join(', ') : 'None checked', document.getElementById('sk1'));
+        // Formspree uses the "email" field for reply-to; keep that working under the new label.
+        addHidden('_replyto', document.getElementById('appEmail').value);
+    }
     document.getElementById('applicationForm').addEventListener('submit', function (e) {
         if (!stepIsValid(TOTAL_STEPS)) { e.preventDefault(); return; }
+        relabelForEmail(this);
         if (typeof scTrack === 'function') scTrack('form_submit_lead', 'careers_application', 0);
     });
     // Deep links like careers.html#apply?pos=foreman from job boards
