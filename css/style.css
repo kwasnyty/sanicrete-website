@@ -77,6 +77,9 @@ img { max-width: 100%; height: auto; display: block; }
 .video-thumbnail:hover::after { background: rgba(21, 41, 66, 0.15); }
 .video-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; width: 72px; height: 72px; background: rgba(255, 255, 255, 0.95); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; }
 .video-play-btn::after { content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 12px 0 12px 22px; border-color: transparent transparent transparent var(--primary); margin-left: 4px; }
+.video-wrapper > .video-play-btn { pointer-events: none; }
+.video-wrapper.playing > .video-play-btn { display: none; }
+.video-wrapper:hover > .video-play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--white); }
 .video-thumbnail:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.1); background: var(--white); box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4); }
 .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--white); background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
 .video-placeholder-icon { font-size: 4rem; margin-bottom: 15px; opacity: 0.8; }

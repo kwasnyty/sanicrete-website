@@ -202,10 +202,11 @@
                         <video controls playsinline preload="none"
                                poster="images/sanicrete-sl-poster.jpg"
                                width="960" height="720"
-                               onplay="if(!this.dataset.t){this.dataset.t=1;if(typeof scTrack==='function')scTrack('video_play','sl_install',0);}">
+                               onplay="this.parentNode.classList.add('playing');if(!this.dataset.t){this.dataset.t=1;if(typeof scTrack==='function')scTrack('video_play','sl_install',0);}">
                             <source src="videos/sanicrete-sl-install.mp4" type="video/mp4">
                             Your browser can't play this video. <a href="https://www.youtube.com/watch?v=PmgGNFQf1H8" rel="noopener" target="_blank">Watch it on YouTube</a>.
                         </video>
+                        <div class="video-play-btn" aria-hidden="true"></div>
                     </div>
                 </div>
             </div>
