@@ -35,6 +35,20 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://code.tidio.co">
     <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "SaniCrete SL Installation Video",
+  "description": "3,900 square feet of SaniCrete SL self-leveling urethane cement installed in a pork processing facility in six hours: prep, pour, and finish.",
+  "thumbnailUrl": "https://www.sanicrete.com/images/sanicrete-sl-poster.jpg",
+  "uploadDate": "2019-09-24",
+  "duration": "PT46S",
+  "contentUrl": "https://www.sanicrete.com/videos/sanicrete-sl-install.mp4",
+  "embedUrl": "https://www.youtube.com/embed/PmgGNFQf1H8",
+  "publisher": { "@type": "Organization", "name": "SaniCrete", "logo": { "@type": "ImageObject", "url": "https://www.sanicrete.com/images/logo.png" } }
+}
+</script>
 </head>
 <body>
     <header class="header">
@@ -184,11 +198,14 @@
                     <p style="font-size: 1.1rem; line-height: 1.8;">All of our equipment runs on HEPA-filtered vacuums. In a food facility, airborne dust is a contamination risk &mdash; we treat the space accordingly, even during demo.</p>
                 </div>
                 <div>
-                    <div class="video-wrapper" data-video-id="PmgGNFQf1H8">
-                        <div class="video-thumbnail" onclick="loadVideo(this)">
-                            <img src="images/sanicrete-sl-install.jpg" alt="SaniCrete SL Installation" loading="lazy" decoding="async">
-                            <div class="video-play-btn"></div>
-                        </div>
+                    <div class="video-wrapper" style="padding-bottom:75%;">
+                        <video controls playsinline preload="none"
+                               poster="images/sanicrete-sl-poster.jpg"
+                               width="960" height="720"
+                               onplay="if(!this.dataset.t){this.dataset.t=1;if(typeof scTrack==='function')scTrack('video_play','sl_install',0);}">
+                            <source src="videos/sanicrete-sl-install.mp4" type="video/mp4">
+                            Your browser can't play this video. <a href="https://www.youtube.com/watch?v=PmgGNFQf1H8" rel="noopener" target="_blank">Watch it on YouTube</a>.
+                        </video>
                     </div>
                 </div>
             </div>
@@ -289,19 +306,7 @@
         </div>
     </footer>
         <script src="js/nav.js"></script>
-    <script>
-    function loadVideo(el) {
-        var wrapper = el.closest('.video-wrapper');
-        var id = wrapper.dataset.videoId;
-        el.remove();
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
-        iframe.title = 'SaniCrete Video';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        wrapper.appendChild(iframe);
-    }
-    </script>
+    
     <script src="https://code.tidio.co/0c3o4c2iz6xfgpc2s9nu5ppsxlg6fzuf.js" async></script>
 <!-- SaniCrete conversion tracking -->
 <script>

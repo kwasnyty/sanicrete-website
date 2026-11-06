@@ -29,6 +29,9 @@ videos/*.mov
 videos/*.avi
 # Exception: the SaniPatch how-to is self-hosted on purpose (brief 2026-10-12)
 !videos/sanipatch-how-to.mp4
+# Exception: homepage intro and process-page SL install, self-hosted 2026-11-06 (replaced YouTube embeds)
+!videos/sanicrete-intro.mp4
+!videos/sanicrete-sl-install.mp4
 
 # Claude config
 .claude/
