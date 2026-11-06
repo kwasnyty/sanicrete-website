@@ -20,10 +20,23 @@
       gtag('config', 'G-8KY0FN705H');
       gtag('config', 'AW-742031087');
     </script>
-    <!-- Google Ads Conversion Tracking - Form Submission -->
+    <!-- Google Ads Conversion Tracking - Form Submission.
+         Every form lands here, so ?from= says which one. Only sales leads count as
+         an Ads conversion; job applications and newsletter signups do not. -->
     <script>
-      gtag('event', 'conversion', {'send_to': 'AW-742031087/msd8COO24f0bEO_96eEC', 'value': 300.0, 'currency': 'USD'});
-        gtag('event', 'form_submit_lead', {event_category:'lead', event_label:'contact_form', value:300});
+      (function(){
+        var from = (new URLSearchParams(location.search).get('from') || 'quote').replace(/[^a-z]/g,'');
+        window.SC_THANKS_FROM = from;
+        var leadValue = { quote: 300, sanipatch: 100 }[from];
+        if (leadValue) {
+          gtag('event', 'conversion', {'send_to': 'AW-742031087/msd8COO24f0bEO_96eEC', 'value': leadValue, 'currency': 'USD'});
+          gtag('event', 'form_submit_lead', {event_category:'lead', event_label: from === 'quote' ? 'contact_form' : 'sanipatch_po', value: leadValue});
+        } else if (from === 'careers') {
+          gtag('event', 'careers_application', {event_category:'careers', event_label:'careers_form'});
+        } else if (from === 'newsletter') {
+          gtag('event', 'email_signup', {event_category:'lead', event_label:'newsletter_nojs', value:50});
+        }
+      })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,8 +165,18 @@
     <section class="thanks-section">
         <div class="thanks-content">
             <div class="thanks-icon">&#10003;</div>
-            <h2>We've Got Your Message</h2>
-            <p>Thank you for reaching out to SaniCrete. A member of our team will review your submission and get back to you within one business day.</p>
+            <h2 id="thanksTitle">We've Got Your Message</h2>
+            <p id="thanksBody">Thank you for reaching out to SaniCrete. A member of our team will review your submission and get back to you within one business day.</p>
+            <script>
+              (function(){
+                var copy = {
+                  careers: ['Application Received', 'Thanks for applying. Tyler reads every application personally and will reach out within a few days if it looks like a fit. If you have not heard back in a week, call the office and ask for him.'],
+                  sanipatch: ['PO Request Received', 'Thanks. We will confirm pricing and freight to your ZIP and email you a quote within one business day.'],
+                  newsletter: ['You Are Subscribed', 'Thanks for signing up. Watch your inbox for project stories, product updates, and floor maintenance tips.']
+                }[window.SC_THANKS_FROM];
+                if (copy) { document.getElementById('thanksTitle').textContent = copy[0]; document.getElementById('thanksBody').textContent = copy[1]; }
+              })();
+            </script>
             <div class="thanks-contact">
                 <p>Need immediate assistance?</p>
                 <p>Call us at <a href="tel:7345509445" onclick="scTrack('phone_call_click','tel',150)">734-550-9445</a></p>
