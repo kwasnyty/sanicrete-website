@@ -37,7 +37,6 @@ function handler(event) {
         '/products.html': '/',
         '/home.html': '/',
         '/flooring.html': '/',
-        '/food-processing/flooring.html': '/industries/meat-poultry.html',
         '/epoxy.html': '/products/sanicoat.html',
         '/urethane.html': '/products/sanicrete-sl.html',
         '/info.html': '/resources.html',
